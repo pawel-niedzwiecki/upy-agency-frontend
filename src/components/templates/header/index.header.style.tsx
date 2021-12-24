@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 type HeaderTypes = {
   theme: {
-    brak: {
+    break: {
       main: string;
     };
     colorBlue: string;
@@ -15,7 +15,7 @@ export const Header = styled.header<HeaderTypes>`
   z-index: 99999;
   display: block;
   position: fixed;
-  padding: ${({ theme }) => theme.brak.main};
+  padding: ${({ theme }) => theme.break.main};
   background: ${({ theme }) => theme.colorBlue};
 `;
 
