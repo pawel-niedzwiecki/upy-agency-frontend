@@ -8,7 +8,7 @@ interface MainSettingsTemplate {
   colorGray: string;
   colorDanger: string;
   colorPurple: string;
-  break: {};
+  break: { small: string; main: string; big: string };
   breakPoint: {}[];
   gridCol: number;
   max_width: string;
