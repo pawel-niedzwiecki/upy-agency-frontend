@@ -1,13 +1,22 @@
 import styled from "styled-components";
 import { Link } from "gatsby";
 
-export const Header = styled.header`
+type HeaderTypes = {
+  theme: {
+    brak: {
+      main: string;
+    };
+    colorBlue: string;
+  };
+};
+
+export const Header = styled.header<HeaderTypes>`
   width: 100%;
   z-index: 99999;
   display: block;
   position: fixed;
-  padding: "1rem";
-  background: ${(p) => p.theme.colorBlue};
+  padding: ${({ theme }) => theme.brak.main};
+  background: ${({ theme }) => theme.colorBlue};
 `;
 
 export const Box = styled.div`
