@@ -1,16 +1,7 @@
 import styled from "styled-components";
 import { Link } from "gatsby";
 
-type HeaderTypes = {
-  theme: {
-    break: {
-      main: string;
-    };
-    colorBlue: string;
-  };
-};
-
-export const Header = styled.header<HeaderTypes>`
+export const Header = styled.header`
   width: 100%;
   z-index: 99999;
   display: block;
