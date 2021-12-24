@@ -8,8 +8,8 @@ const Row = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   box-sizing: border-box;
-  margin-left: ${({ theme }) => `-${theme.break.main}`};
-  margin-right: ${({ theme }) => `-${theme.break.main}`};
+  margin-left: -1rem;
+  margin-right: -1rem;
 `;
 
 // Export new style

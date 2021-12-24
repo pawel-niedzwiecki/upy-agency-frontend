@@ -20,7 +20,7 @@ export const Logo = styled(Link)`
   position: relative;
   align-items: center;
   background: transparent;
-  padding: 0 ${(p) => p.theme.break.main};
+  padding: 0 -1rem;
 
   svg {
     height: 4rem;

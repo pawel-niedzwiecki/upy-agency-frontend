@@ -5,7 +5,7 @@ const InputTXT = css`
   height: 3.6rem;
   border-radius: 0.3rem;
   color: ${({ theme }) => theme.white};
-  padding: 0 ${({ theme }) => theme.break.main};
+  padding: 0 1rem;
 
   &:focus {
     outline: none;
