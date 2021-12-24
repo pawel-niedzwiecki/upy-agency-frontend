@@ -6,7 +6,11 @@ export const Header = styled.header`
   z-index: 99999;
   display: block;
   position: fixed;
-  padding: 0 1.5rem;
+  padding: ${(p) => {
+      console.log(p.theme.break.main);
+      return "1rem";
+    }}
+    0;
   background: ${(p) => p.theme.colorBlue};
 `;
 

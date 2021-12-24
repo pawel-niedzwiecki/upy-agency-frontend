@@ -16,8 +16,8 @@ interface ColProps {
 const Col = styled.div<ColProps>`
   width: 100%;
   position: relative;
-  padding-left: ${({ theme }) => theme.break.main};
-  padding-right: ${({ theme }) => theme.break.main};
+  padding-left: "1rem";
+  padding-right: "1rem";
 
   ${({ theme, xs }) =>
     xs &&
