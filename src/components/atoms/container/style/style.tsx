@@ -2,12 +2,12 @@
 import styled from "styled-components";
 
 // TypeScript for Props
-interface Props {
+type ContainerTypes = {
   size?: string;
-}
+};
 
 // Create new style
-const Container = styled.div<Props>`
+const Container = styled.div<ContainerTypes>`
   width: 100%;
   margin-left: auto;
   margin-right: auto;
