@@ -8,7 +8,10 @@ interface MainSettingsTemplate {
   colorGray: string;
   colorDanger: string;
   colorPurple: string;
-  break: { small: string; main: string; big: string };
+  breakSmall: string;
+  breakMain: string;
+  breakBig: string;
+  break: {};
   breakPoint: {}[];
   gridCol: number;
   max_width: string;
@@ -27,6 +30,9 @@ const settings: MainSettingsTemplate = {
   colorPurple: "#D795FF",
 
   // settings break
+  breakSmall: "0.5rem",
+  breakMain: "1rem",
+  breakBig: "4rem",
   break: { small: "0.5rem", main: "1rem", big: "4rem" },
 
   // settings breakpoint

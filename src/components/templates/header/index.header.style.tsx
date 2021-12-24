@@ -6,7 +6,7 @@ export const Header = styled.header`
   z-index: 99999;
   display: block;
   position: fixed;
-  padding: ${({ theme }) => theme.break.main};
+  padding: ${({ theme }) => theme.breakMain}};
   background: ${({ theme }) => theme.colorBlue};
 `;
 
@@ -24,12 +24,12 @@ export const Logo = styled(Link)`
 
   svg {
     height: 4rem;
-    fill: ${(p) => p.theme.colorWhite};
+    fill: ${({ theme }) => theme.colorWhite};
   }
 
   &:hover {
     svg {
-      fill: ${(p) => p.theme.colorPurple};
+      fill: ${({ theme }) => theme.colorPurple};
     }
   }
 `;

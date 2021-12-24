@@ -2,7 +2,7 @@
 import React from "react";
 
 // import style
-import Col from "./style/style";
+import Col from "./component.col.style";
 
 // create interface
 interface ColComponentProps {

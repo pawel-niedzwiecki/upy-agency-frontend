@@ -2,7 +2,7 @@
 import React from "react";
 
 // Import style
-import Container from "./style/style";
+import Container from "./component.container.style";
 
 // TypeScript for Props
 type ContainerComponentProps = {

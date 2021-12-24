@@ -16,8 +16,8 @@ interface ColProps {
 const Col = styled.div<ColProps>`
   width: 100%;
   position: relative;
-  padding-left: "1rem";
-  padding-right: "1rem";
+  padding-left: ${({ theme }) => theme.breakMain}};
+  padding-right: ${({ theme }) => theme.breakMain}};
 
   ${({ theme, xs }) =>
     xs &&
@@ -37,14 +37,14 @@ const Col = styled.div<ColProps>`
     `}
 
     ${({ theme, md }) =>
-    md &&
-    css`
-      @media all and (min-width: ${theme.breakPoint[theme.breakPoint.findIndex((item: any) => item.type === "md")]
-          .break}) {
-        flex: ${(100 * md) / theme.gridCol}%;
-        max-width: ${(100 * md) / theme.gridCol}%;
-      }
-    `}
+      md &&
+      css`
+        @media all and (min-width: ${theme.breakPoint[theme.breakPoint.findIndex((item: any) => item.type === "md")]
+            .break}) {
+          flex: ${(100 * md) / theme.gridCol}%;
+          max-width: ${(100 * md) / theme.gridCol}%;
+        }
+      `}
   
 
   ${({ theme, lg }) =>
@@ -68,14 +68,14 @@ const Col = styled.div<ColProps>`
     `}
 
     ${({ theme, xxl }) =>
-    xxl &&
-    css`
-      @media all and (min-width: ${theme.breakPoint[theme.breakPoint.findIndex((item: any) => item.type === "xxl")]
-          .break}) {
-        flex: ${(100 * xxl) / theme.gridCol}%;
-        max-width: ${(100 * xxl) / theme.gridCol}%;
-      }
-    `}
+      xxl &&
+      css`
+        @media all and (min-width: ${theme.breakPoint[theme.breakPoint.findIndex((item: any) => item.type === "xxl")]
+            .break}) {
+          flex: ${(100 * xxl) / theme.gridCol}%;
+          max-width: ${(100 * xxl) / theme.gridCol}%;
+        }
+      `}
 `;
 
 // Export new style

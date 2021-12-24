@@ -2,7 +2,7 @@
 import React from "react";
 
 // Import style
-import Row from "./style/style";
+import Row from "./component.row.style";
 
 // TypeScript for Props
 type RowProps = {
