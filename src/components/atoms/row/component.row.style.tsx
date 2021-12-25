@@ -6,8 +6,8 @@ const Row = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   box-sizing: border-box;
-  margin-left: ${({ theme }) => `-${theme.breakMain}`}};
-  margin-right: ${({ theme }) => `-${theme.breakMain}`}};
+  margin-left: ${({ theme }) => `-${theme.break.main}`};
+  margin-right: ${({ theme }) => `-${theme.break.main}`};
 `;
 
 export default Row;

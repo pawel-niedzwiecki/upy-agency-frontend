@@ -7,7 +7,6 @@ interface GlobalStyleProps {
     colorWhite: string;
     colorBlack: string;
     colorBlueDark: string;
-    break: { small: string; main: string; big: string };
   };
 }
 
@@ -31,8 +30,8 @@ const GlobalStyle = styled.createGlobalStyle<GlobalStyleProps>`
     font-size: 1.6rem;
     font-style: normal;
     font-weight: normal;
-    color: ${(p) => p.theme.colorWhite};
-    background-color: ${(p) => p.theme.colorBlueDark};
+    color: ${({ theme }) => theme.colorWhite};
+    background-color: ${({ theme }) => theme.colorBlueDark};
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans",
       sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
@@ -67,16 +66,16 @@ const GlobalStyle = styled.createGlobalStyle<GlobalStyleProps>`
     opacity: 1;
     transition: all 0.3s;
     text-decoration: none;
-    color: ${(p) => p.theme.colorAqua}
+    color: ${({ theme }) => theme.colorAqua}
 
     &:hover {
-      color: ${(p) => p.theme.colorWhite}
+      color: ${({ theme }) => theme.colorWhite}
     }
   }
 
   svg {
     transition: all 0.3s;
-    fill: ${(p) => p.theme.colorAqua}
+    fill: ${({ theme }) => theme.colorAqua}
   }
 
   ol,

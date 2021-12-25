@@ -1,5 +1,7 @@
 import React from "react";
-
+import settings from "assets/style/settings";
+import { ThemeProvider } from "styled-components";
+import GlobalStyle from "assets/style/GlobalStyle";
 import Header from "components/templates/header/index.header";
 
 interface LayoutComponentProps {
@@ -8,10 +10,11 @@ interface LayoutComponentProps {
 
 const LayoutComponent = ({ children }: LayoutComponentProps) => {
   return (
-    <>
+    <ThemeProvider theme={settings}>
+      <GlobalStyle />
       <Header />
       {children}
-    </>
+    </ThemeProvider>
   );
 };
 

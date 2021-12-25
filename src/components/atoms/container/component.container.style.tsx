@@ -12,8 +12,8 @@ const Container = styled.div<ContainerTypes>`
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  padding-left: ${({ theme }) => theme.breakMain}};
-  padding-right: ${({ theme }) => theme.breakMain}};
+  padding-left: ${({ theme }) => theme.break.main};
+  padding-right: ${({ theme }) => theme.break.main};
   max-width: ${({ theme, size }) => (size === "full" ? "100%" : theme.max_width)};
 `;
 

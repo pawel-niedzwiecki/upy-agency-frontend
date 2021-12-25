@@ -6,7 +6,7 @@ export const Header = styled.header`
   z-index: 99999;
   display: block;
   position: fixed;
-  padding: ${({ theme }) => theme.breakMain}};
+  padding: ${({ theme }) => theme.break.main};
   background: ${({ theme }) => theme.colorBlue};
 `;
 
@@ -20,7 +20,7 @@ export const Logo = styled(Link)`
   position: relative;
   align-items: center;
   background: transparent;
-  padding: 0 -1rem;
+  padding: 0 ${({ theme }) => theme.break.main};
 
   svg {
     height: 4rem;
