@@ -47,6 +47,16 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 1rem;
+    display: inline-block;
+    padding-left: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+
   padding: ${({ theme }) => theme.break.big};
   a {
     color: ${({ theme }) => theme.colorWhite};
@@ -54,5 +64,8 @@ export const Item = styled.li`
     &:hover {
       color: ${({ theme }) => theme.colorAqua};
     }
+  }
+  a:hover svg {
+    fill: ${({ theme }) => theme.colorAqua};
   }
 `;

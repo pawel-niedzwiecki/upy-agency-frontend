@@ -75,7 +75,7 @@ const GlobalStyle = styled.createGlobalStyle<GlobalStyleProps>`
 
   svg {
     transition: all 0.3s;
-    fill: ${({ theme }) => theme.colorAqua};
+    fill: ${({ theme }) => theme.colorWhite};
   }
 
   ol,
