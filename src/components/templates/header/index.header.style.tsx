@@ -2,16 +2,23 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 
 export const Header = styled.header`
+  padding: 0;
   width: 100%;
   z-index: 99999;
   display: block;
   position: fixed;
-  padding: ${({ theme }) => theme.break.main};
   background: ${({ theme }) => theme.colorBlue};
+  border-bottom: 0.2rem solid ${({ theme }) => theme.colorBorder};
 `;
 
 export const Box = styled.div`
   display: flex;
+  align-items: center;
+
+  .onlineValuationLink {
+    margin-left: auto;
+    padding: 0 ${({ theme }) => theme.break.main};
+  }
 `;
 
 export const Logo = styled(Link)`
@@ -36,6 +43,16 @@ export const Logo = styled(Link)`
 
 export const List = styled.ul`
   display: flex;
+  padding-left: ${({ theme }) => theme.break.big};
 `;
 
-export const Item = styled.li``;
+export const Item = styled.li`
+  padding: ${({ theme }) => theme.break.big};
+  a {
+    color: ${({ theme }) => theme.colorWhite};
+
+    &:hover {
+      color: ${({ theme }) => theme.colorAqua};
+    }
+  }
+`;

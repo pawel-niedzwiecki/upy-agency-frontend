@@ -13,9 +13,18 @@ const HeaderComponent = () => {
             <Brand />
           </Logo>
           <List>
-            <Item>ok</Item>
+            <Item>Realizacje</Item>
+            <Item>Usługi</Item>
+            <Item>
+              <ButtonInLink href="/">O nas</ButtonInLink>
+            </Item>
+            <Item>
+              <ButtonInLink href="/">Kontakt</ButtonInLink>
+            </Item>
           </List>
-          <ButtonInLink href="/">Wycena online</ButtonInLink>
+          <ButtonInLink className="onlineValuationLink" href="/">
+            Wycena online
+          </ButtonInLink>
         </Box>
       </Container>
     </Header>

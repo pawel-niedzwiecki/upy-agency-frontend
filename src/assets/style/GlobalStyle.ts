@@ -66,16 +66,16 @@ const GlobalStyle = styled.createGlobalStyle<GlobalStyleProps>`
     opacity: 1;
     transition: all 0.3s;
     text-decoration: none;
-    color: ${({ theme }) => theme.colorAqua}
+    color: ${({ theme }) => theme.colorAqua};
 
     &:hover {
-      color: ${({ theme }) => theme.colorWhite}
+      color: ${({ theme }) => theme.colorWhite};
     }
   }
 
   svg {
     transition: all 0.3s;
-    fill: ${({ theme }) => theme.colorAqua}
+    fill: ${({ theme }) => theme.colorAqua};
   }
 
   ol,

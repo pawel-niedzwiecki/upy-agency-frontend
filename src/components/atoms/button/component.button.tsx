@@ -44,11 +44,16 @@ export const ButtonOutLink = ({ children, href, title }: ButtonOutLinkProps, pro
 
 interface ButtonInLinkProps {
   href: string;
+  className?: string;
   children?: JSX.Element | JSX.Element[] | any;
 }
 
-export const ButtonInLink = ({ children, href }: ButtonInLinkProps) => {
-  return <ButtonInLinkStyled to={href}>{children}</ButtonInLinkStyled>;
+export const ButtonInLink = ({ children, href, className }: ButtonInLinkProps) => {
+  return (
+    <ButtonInLinkStyled to={href} className={className}>
+      {children}
+    </ButtonInLinkStyled>
+  );
 };
 
 // create interface
