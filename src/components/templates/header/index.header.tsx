@@ -1,50 +1,36 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import Brand from "assets/media/icon/logo.svg";
-import Arrow from "assets/media/icon/arrow.svg";
-import { useStaticQuery, graphql } from "gatsby";
-import { Header, Logo, List, Item, Box } from "./index.header.style";
+
+import { Header, Logo, List, Item, Box, MobileMenuButton } from "./index.header.style";
 import { ButtonInLink } from "components/atoms/button/component.button";
 import { Container } from "components/orgamis/flexboxgrid/index.flexboxgrid";
 
 const HeaderComponent = () => {
-  const data = useStaticQuery(graphql`
-    query HeaderQuery {
-      strapiExecutionCategories {
-        data {
-          id
-          attributes {
-            title
-          }
-        }
-      }
-    }
-  `);
-  const { strapiExecutionCategories } = data;
-  console.log(strapiExecutionCategories);
-
+  const [powerMenu, setPowerMenu] = useState(false);
   return (
     <Header>
       <Container>
-        <Box>
+        <Box powerMenu={powerMenu}>
           <Logo to="/">
             <Brand />
           </Logo>
+          <MobileMenuButton powerMenu={powerMenu} onClick={() => setPowerMenu(!powerMenu)}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </MobileMenuButton>
           <List>
             <Item>
-              <ButtonInLink href="/">
-                Realizacje <Arrow />
-              </ButtonInLink>
+              <ButtonInLink href="/e">Realizacje</ButtonInLink>
             </Item>
             <Item>
-              <ButtonInLink href="/">
-                Usługi <Arrow />
-              </ButtonInLink>
+              <ButtonInLink href="/s">Usługi</ButtonInLink>
             </Item>
             <Item>
-              <ButtonInLink href="/">O nas</ButtonInLink>
+              <ButtonInLink href="/about">O nas</ButtonInLink>
             </Item>
             <Item>
-              <ButtonInLink href="/">Kontakt</ButtonInLink>
+              <ButtonInLink href="/contact">Kontakt</ButtonInLink>
             </Item>
           </List>
           <ButtonInLink className="onlineValuationLink" href="/">

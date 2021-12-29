@@ -25,7 +25,7 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: `https://upy.herokuapp.com/api`,
+        apiURL: `https://upy.herokuapp.com`,
         queryLimit: 1000,
         collectionTypes: [`executions`, `execution-categories`, `services`, `service-categories`],
       },
