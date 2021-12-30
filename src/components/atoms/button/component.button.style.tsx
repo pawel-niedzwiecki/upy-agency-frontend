@@ -1,68 +1,46 @@
 import styled, { css } from "styled-components";
 import { Link } from "gatsby";
 
-export const Button = styled.button`
-  margin-right: auto;
-  margin: 3rem auto 0rem 0;
-  padding: 1rem 2rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  border-radius: 5rem;
-  border: 0.5rem solid ${({ theme }) => theme.aqua};
-  background-color: transparent;
-  color: ${({ theme }) => theme.aqua};
-  transition: all 0.3s;
-  cursor: pointer;
-  animation-duration: 500ms;
-  animation-fill-mode: forwards;
-  animation-name: startAnimation4;
-
-  @media all and (min-width: 768px) {
-    font-size: 2rem;
-    padding: 2rem 4rem;
-  }
-
-  &:hover {
-    color: black;
-    background-color: ${({ theme }) => theme.aqua};
-  }
-`;
+export const Button = styled.button``;
 
 const buttonwholestyle = css`
+  border: none;
+  display: flex;
   cursor: pointer;
   font-size: 1.6rem;
   font-weight: bold;
-  padding: 1rem 2rem;
-  border-radius: 5rem;
   transition: all 0.3s;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
   background-color: transparent;
-  color: ${({ theme }) => theme.aqua};
-  border: 0.3rem solid ${({ theme }) => theme.aqua};
+  color: ${({ theme }) => theme.colorBlack};
+  background-color: ${({ theme }) => theme.colorAqua};
 
   @media all and (min-width: 768px) {
-    padding: 1.5rem 3rem;
-    border: 0.5rem solid ${({ theme }) => theme.aqua};
-  }
-
-  @media all and (min-width: 1024px) {
     font-size: 2rem;
-    padding: 2rem 4rem;
-  }
-
-  &:focus {
-    outline: none;
+    padding: 1rem 2rem;
   }
 
   svg {
-    height: 2rem;
+    height: 1.4rem;
+    padding-left: 1rem;
+    margin-top: 0.3rem;
+    padding-right: 0.6rem;
+    display: inline-block;
+    fill: ${({ theme }) => theme.colorBlack};
+
+    @media all and (min-width: 768px) {
+      height: 1.8rem;
+      margin-top: 0.1rem;
+    }
   }
 
   &:hover {
-    color: black;
-    background-color: ${({ theme }) => theme.aqua};
+    background-color: ${({ theme }) => theme.colorWhite};
 
     svg {
-      fill: ${({ theme }) => theme.blueDark};
+      padding-right: 0rem;
+      padding-left: 1.6rem;
     }
   }
 `;
@@ -104,9 +82,4 @@ export const ButtonInLinkStyled = styled(Link)``;
 
 export const ButtonSubmitStyled = styled.button`
   ${buttonwholestyle}
-
-  @media all and (min-width: 768px) {
-    font-size: 1.5rem;
-    padding: 1rem 4rem;
-  }
 `;

@@ -8,7 +8,7 @@ export const Header = styled.header`
   display: block;
   position: fixed;
   background: ${({ theme }) => theme.colorBlue};
-  border-bottom: 0.2rem solid ${({ theme }) => theme.colorBorder};
+  border-bottom: 0.3rem solid ${({ theme }) => theme.colorBorder};
 `;
 
 type PowerMenuType = {
@@ -143,4 +143,11 @@ export const MobileMenuButton = styled.div<MobileMenuButtonType>`
   @media all and (min-width: 767px) {
     display: none;
   }
+`;
+
+export const BreakBoxHeader = styled.div`
+  width: 100%;
+  height: 6rem;
+  display: block;
+  position: relative;
 `;
