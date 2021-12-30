@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+<style type="text/css">
+	.st0{opacity:0.5;filter:url(#noise);enable-background:new    ;}
+</style>
+<filter  id="noise" x="0" y="0">
+	<feTurbulence  baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" type="fractalNoise"></feTurbulence>
+	<feBlend  mode="screen"></feBlend>
+</filter>
+<g class="st0">
+	<rect width="500" height="500"/>
+</g>
+</svg>

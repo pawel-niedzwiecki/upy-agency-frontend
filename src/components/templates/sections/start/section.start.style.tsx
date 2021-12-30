@@ -27,6 +27,7 @@ export const Section = styled.section`
 `;
 
 export const BoxContent = styled.div`
+  z-index: 20;
   width: 25rem;
   display: flex;
   margin: 0 auto;
@@ -81,5 +82,110 @@ export const Form = styled.form`
     width: 100%;
     display: block;
     margin: ${({ theme }) => theme.break.main} 0;
+  }
+`;
+
+export const MovingElementBox = styled.div`
+  display: none;
+
+  @media all and (min-width: 768px) {
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    width: 50rem;
+    height: 50rem;
+    display: block;
+    position: absolute;
+  }
+`;
+
+interface SharpCircleProps {
+  bg: any;
+}
+
+export const SharpCircle = styled.div<SharpCircleProps>`
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  display: flex;
+  width: 5.6rem;
+  height: 5.6rem;
+  overflow: hidden;
+  position: absolute;
+  align-items: center;
+  border-radius: 100%;
+  justify-content: center;
+
+  .ball-shadow {
+    height: 100%;
+    filter: contrast(200%) brightness(500%);
+    background: radial-gradient(circle at 30% 30%, rgba(0, 0, 0, 0), rgba(70, 50, 100, 1)), url(${({ bg }) => bg});
+  }
+
+  .ball-light {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    mix-blend-mode: multiply;
+    background: radial-gradient(circle at 67% 30%, #efd5ff, #e0aeff);
+  }
+
+  .isolate {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    isolation: isolate;
+    position: absolute;
+  }
+`;
+
+export const AnimationLogo = styled.div`
+  top: 30%;
+  left: 20%;
+  z-index: 20;
+  width: 7rem;
+  height: 7rem;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const SharpTriangle = styled.div<SharpCircleProps>`
+  top: 60%;
+  left: 10%;
+  z-index: 20;
+  display: flex;
+  width: 7rem;
+  height: 7rem;
+  overflow: hidden;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+
+  .ball-shadow {
+    height: 100%;
+    filter: contrast(200%) brightness(500%);
+    background: radial-gradient(circle at 30% 30%, rgba(0, 0, 0, 0), #32645c), url(${({ bg }) => bg});
+  }
+
+  .ball-light {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    mix-blend-mode: multiply;
+    background: radial-gradient(circle at 67% 30%, #d5ffff, #aeffe7);
+  }
+
+  .isolate {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    isolation: isolate;
+    position: absolute;
   }
 `;

@@ -39,6 +39,7 @@ export const Select = styled.select`
   box-shadow: none;
 
   flex: 1;
+  margin: 0;
   padding: 0 1em;
   color: #fff;
   background-color: ${({ theme }) => theme.colorBlue};
