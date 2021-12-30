@@ -3,7 +3,7 @@ import { SelectStyleType } from "./component.input.select.type";
 
 export const SelectBox = styled.div<SelectStyleType>`
   flex: 100%;
-  height: 2em;
+  height: 2.5em;
   width: 100%;
   display: flex;
   overflow: hidden;
@@ -15,7 +15,7 @@ export const SelectBox = styled.div<SelectStyleType>`
   }
 
   &::after {
-    top: 1.2rem;
+    top: 1.6rem;
     right: 1rem;
     content: "";
     height: 1rem;
