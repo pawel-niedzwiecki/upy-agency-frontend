@@ -3,12 +3,13 @@ import styled, { css } from "styled-components";
 export const Section = styled.section`
   width: 100%;
   display: flex;
-  min-height: 40rem;
+  min-height: 30rem;
   position: relative;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   background-size: 90% auto;
+  height: calc(100vh - 20rem);
   background-repeat: no-repeat;
 
   @media all and (min-width: 768px) {
