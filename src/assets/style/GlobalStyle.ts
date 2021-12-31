@@ -26,6 +26,7 @@ const GlobalStyle = styled.createGlobalStyle<GlobalStyleProps>`
   body {
     margin: 0;
     padding: 0;
+    height: 300vh;
     line-height: 1.2;
     font-size: 1.6rem;
     font-style: normal;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import BackgroundImage from "gatsby-background-image";
 import Typewriter from "typewriter-effect";
 import Brand from "assets/media/icon/logotyp.svg";
 import { graphql, useStaticQuery } from "gatsby";
@@ -11,6 +12,8 @@ import {
   SharpCircle,
   AnimationLogo,
   SharpTriangle,
+  ChatFaceBox,
+  ChatFaceBoxText,
 } from "./section.start.style";
 import { InputSelect } from "components/molecules/form/index.form";
 import { ButtonSubmit } from "components/atoms/button/component.button";
@@ -38,6 +41,8 @@ const tawkToLoadScripts = async () => {
 };
 
 const StartSectionComponent = () => {
+  const [infoChat, useInfoChat] = useState(true);
+  const [powerChat, usePowerChat] = useState(false);
   const [startAnimation, useStartAnimation] = useState(false);
 
   const { wheel, noise, filip } = useStaticQuery(
@@ -55,14 +60,16 @@ const StartSectionComponent = () => {
         }
         filip: file(name: { eq: "filip" }) {
           id
-          name
-          publicURL
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     `
   );
 
-  console.log(filip);
   useEffect(() => {
     const start = setTimeout(() => {
       useStartAnimation(true);
@@ -78,12 +85,25 @@ const StartSectionComponent = () => {
     window.Tawk_API = window.Tawk_API || {};
     window.Tawk_LoadStart = new Date();
 
+    window.Tawk_API.onStatusChange = function (status: any) {
+      if (status === "online") usePowerChat(true);
+    };
     window.Tawk_API.onLoad = function () {
       window.Tawk_API.hideWidget();
-      console.log("chat loaded");
     };
   }, []);
 
+  useEffect(() => {
+    powerChat
+      ? (window.onscroll = () => {
+          const scrollToEdgeStart = window.pageYOffset;
+          if (scrollToEdgeStart > 200 && infoChat) useInfoChat(false);
+          else if (scrollToEdgeStart < 200 && !infoChat) useInfoChat(true);
+        })
+      : null;
+  }, [infoChat, powerChat]);
+
+  console.log(infoChat);
   return (
     <Section style={{ backgroundImage: `url(${wheel.publicURL})` }}>
       {startAnimation && (
@@ -104,6 +124,18 @@ const StartSectionComponent = () => {
               </ButtonSubmit>
             </Form>
           </BoxContent>
+          <ChatFaceBox
+            infoChat={infoChat}
+            powerChat={powerChat}
+            onClick={() => {
+              window.Tawk_API.maximize();
+            }}
+          >
+            <ChatFaceBoxText infoChat={infoChat} powerChat={powerChat}>
+              Hej , może w czymś pomóc ?
+            </ChatFaceBoxText>
+            <BackgroundImage Tag="div" className="face" fluid={filip.childImageSharp.fluid} />
+          </ChatFaceBox>
           <MovingElementBox>
             <MovingElement>
               <SharpCircle bg={noise.publicURL} className="movieEL">

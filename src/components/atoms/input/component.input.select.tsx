@@ -16,8 +16,6 @@ export const InputSelect = ({ options }: SelectType) => {
     `
   );
 
-  console.log(arrow);
-
   return (
     <SelectBox mask={arrow.publicURL}>
       <Select>

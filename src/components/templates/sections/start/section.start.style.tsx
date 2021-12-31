@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Section = styled.section`
   width: 100%;
@@ -92,8 +92,8 @@ export const MovingElementBox = styled.div`
     right: 0;
     bottom: 0;
     z-index: 0;
-    width: 50rem;
-    height: 50rem;
+    width: 30rem;
+    height: 30rem;
     display: block;
     position: absolute;
   }
@@ -103,13 +103,26 @@ interface SharpCircleProps {
   bg: any;
 }
 
+export const AnimationLogo = styled.div`
+  top: 10%;
+  left: 35%;
+  z-index: 20;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const SharpCircle = styled.div<SharpCircleProps>`
-  top: 50%;
-  left: 50%;
+  bottom: 25%;
+  left: 0%;
   z-index: 0;
   display: flex;
-  width: 5.6rem;
-  height: 5.6rem;
+  width: 3rem;
+  height: 3rem;
   overflow: hidden;
   position: absolute;
   align-items: center;
@@ -140,26 +153,13 @@ export const SharpCircle = styled.div<SharpCircleProps>`
   }
 `;
 
-export const AnimationLogo = styled.div`
-  top: 30%;
-  left: 20%;
-  z-index: 20;
-  width: 7rem;
-  height: 7rem;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const SharpTriangle = styled.div<SharpCircleProps>`
-  top: 60%;
-  left: 10%;
+  bottom: 20%;
+  right: 10%;
   z-index: 20;
   display: flex;
-  width: 7rem;
-  height: 7rem;
+  width: 3rem;
+  height: 3rem;
   overflow: hidden;
   position: absolute;
   align-items: center;
@@ -187,5 +187,100 @@ export const SharpTriangle = styled.div<SharpCircleProps>`
     height: 100%;
     isolation: isolate;
     position: absolute;
+  }
+`;
+
+type PowerChatType = {
+  infoChat: boolean;
+  powerChat: boolean;
+};
+
+export const ChatFaceBox = styled.div<PowerChatType>`
+  z-index: 99;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  display: flex;
+  height: 4.5rem;
+  position: fixed;
+  cursor: pointer;
+  border-radius: 3rem;
+  align-items: center;
+  transition: all 1.2s;
+  animation-delay: 100ms;
+  animation-duration: 1200ms;
+  animation-fill-mode: forwards;
+  animation-name: ChatFaceBoxAnimation;
+  background: ${({ theme }) => theme.colorBlue};
+  border: 0.2rem solid ${({ theme }) => theme.colorBorder};
+  display: ${({ powerChat }) => (powerChat ? "flex" : "none")};
+  padding: ${({ infoChat }) => (infoChat ? "0 0" : "0 0!important")};
+  width: ${({ infoChat }) => (infoChat ? "4.5rem" : "4.5rem !important")};
+
+  @keyframes ChatFaceBoxAnimation {
+    from {
+      padding: 0 0;
+      width: 4.5rem;
+    }
+    to {
+      width: 30rem;
+      padding: 0 2.5rem;
+    }
+  }
+
+  @media all and (min-width: 768px) {
+    right: 2rem;
+    bottom: 25rem;
+  }
+
+  .face {
+    top: -0.2rem;
+    width: 4.5rem;
+    right: -0.1rem;
+    display: block;
+    height: 4.5rem;
+    overflow: hidden;
+    border-radius: 100%;
+    transition: all 1.2s;
+    animation-delay: 1200ms;
+    animation-duration: 1200ms;
+    animation-fill-mode: forwards;
+    position: absolute !important;
+    animation-name: ChatFaceBoxfaceAnimation;
+    border: 0.3rem solid ${({ theme }) => theme.colorAqua};
+  }
+
+  &:hover {
+    background: ${({ theme }) => theme.colorBlueDark};
+
+    .face {
+      border: 0.3rem solid ${({ theme }) => theme.colorWhite};
+    }
+  }
+`;
+
+type ChatFaceBoxTextType = {
+  infoChat: boolean;
+  powerChat: boolean;
+};
+
+export const ChatFaceBoxText = styled.p<ChatFaceBoxTextType>`
+  width: 0%;
+  height: 4.5rem;
+  overflow: hidden;
+  line-height: 4.5rem;
+  animation-delay: 800ms;
+  animation-duration: 1500ms;
+  animation-fill-mode: forwards;
+  animation-name: ChatFaceBoxTextAnimation;
+  width: ${({ infoChat }) => (infoChat ? "0%" : "0% !important")};
+
+  @keyframes ChatFaceBoxTextAnimation {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
   }
 `;
