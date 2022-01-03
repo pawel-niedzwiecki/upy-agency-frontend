@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 export const Section = styled.section`
   width: 100%;
   display: flex;
+  overflow: hidden;
   min-height: 30rem;
   position: relative;
   align-items: center;
@@ -92,7 +93,7 @@ export const MovingElementBox = styled.div`
 
   @media all and (min-width: 768px) {
     right: 0;
-    bottom: 0;
+    bottom: 5vh;
     z-index: 0;
     width: 30rem;
     height: 30rem;
@@ -106,11 +107,11 @@ interface SharpCircleProps {
 }
 
 export const AnimationLogo = styled.div`
-  top: 10%;
-  left: 35%;
+  top: 0%;
+  left: 25%;
   z-index: 20;
-  width: 4rem;
-  height: 4rem;
+  width: 6rem;
+  height: 6rem;
   display: flex;
   overflow: hidden;
   position: absolute;
@@ -119,12 +120,12 @@ export const AnimationLogo = styled.div`
 `;
 
 export const SharpCircle = styled.div<SharpCircleProps>`
-  bottom: 25%;
+  bottom: 20%;
   left: 0%;
   z-index: 0;
   display: flex;
-  width: 3rem;
-  height: 3rem;
+  width: 5rem;
+  height: 5rem;
   overflow: hidden;
   position: absolute;
   align-items: center;
@@ -156,12 +157,12 @@ export const SharpCircle = styled.div<SharpCircleProps>`
 `;
 
 export const SharpTriangle = styled.div<SharpCircleProps>`
-  bottom: 20%;
+  bottom: 10%;
   right: 10%;
   z-index: 20;
   display: flex;
-  width: 3rem;
-  height: 3rem;
+  width: 5rem;
+  height: 5rem;
   overflow: hidden;
   position: absolute;
   align-items: center;

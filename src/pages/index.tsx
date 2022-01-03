@@ -1,6 +1,6 @@
 import * as React from "react";
 import Layout from "layout/index.layout";
-import { Start, WroteAboutUses, ServicesComponent } from "components/templates/sections/index.sections";
+import { Start, WroteAboutUses, ServicesComponent, TheyTrustedUses } from "components/templates/sections/index.sections";
 
 const IndexPage = () => {
   return (
@@ -8,6 +8,7 @@ const IndexPage = () => {
       <Start />
       <WroteAboutUses />
       <ServicesComponent />
+      <TheyTrustedUses />
     </Layout>
   );
 };
