@@ -20,6 +20,7 @@ export const Section = styled.section`
 
 export const Title = styled.h2`
   font-size: 1.6rem;
+  white-space: nowrap;
 
   @media all and (min-width: 768px) {
     font-size: 1.8rem;
