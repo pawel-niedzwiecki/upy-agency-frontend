@@ -40,7 +40,7 @@ export const ChatFaceBox = styled.div<PowerChatType>`
 
   @media all and (min-width: 768px) {
     right: 2rem;
-    bottom: 25rem;
+    bottom: 40rem;
   }
 
   .face {
