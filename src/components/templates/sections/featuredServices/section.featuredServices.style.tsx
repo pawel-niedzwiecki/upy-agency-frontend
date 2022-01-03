@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  padding: 10rem 0;
+  padding: 5rem 0;
+
+  @media all and (min-width: 768px) {
+    padding: 10rem 0;
+  }
 `;
 
 export const BoxServices = styled.div`
@@ -52,5 +56,6 @@ export const ListOptions = styled.div`
 
   a {
     margin-right: 2rem;
+    white-space: nowrap;
   }
 `;
