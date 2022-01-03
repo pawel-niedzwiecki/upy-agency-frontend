@@ -9,12 +9,12 @@ export const Section = styled.section`
   flex-direction: column;
   justify-content: center;
   background-size: 90% auto;
-  height: calc(100vh - 30rem);
+  height: calc(100vh - 21rem);
   background-repeat: no-repeat;
 
   @media all and (min-width: 768px) {
     background-size: 70% auto;
-    height: calc(100vh - 20rem);
+    height: calc(100vh - 21rem);
   }
 
   .Typewriter {

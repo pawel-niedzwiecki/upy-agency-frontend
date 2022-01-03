@@ -13,6 +13,7 @@ module.exports = {
         path: path.join(__dirname, `src`, `assets`),
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     "gatsby-plugin-styled-components",

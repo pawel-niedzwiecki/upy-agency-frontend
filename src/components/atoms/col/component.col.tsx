@@ -12,7 +12,7 @@ interface ColComponentProps {
   lg?: number;
   xl?: number;
   xxl?: number;
-  style?: {};
+  style?: any;
   className?: string;
   ref?: JSX.Element | JSX.Element[] | any;
   children?: JSX.Element | JSX.Element[] | any;
