@@ -1,10 +1,8 @@
 import React from "react";
-
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/splide/dist/css/themes/splide-skyblue.min.css";
-import { Section, Title } from "./component.wroteAboutUses.style";
+import { Section, Title } from "./section.wroteAboutUses.style";
 import { Row, Col, Container } from "components/orgamis/flexboxgrid/index.flexboxgrid";
 
 const wroteAboutUses = () => {
@@ -27,8 +25,6 @@ const wroteAboutUses = () => {
       }
     `
   );
-
-  console.log(wroteAboutUses);
 
   return (
     <Section>
@@ -70,9 +66,12 @@ const wroteAboutUses = () => {
                   index: number
                 ) => {
                   const img = logo.brand.localFile.childImageSharp.gatsbyImageData;
+
                   return (
                     <SplideSlide key={logo.id} className="slide">
-                      <GatsbyImage alt={logo.id} image={img} />
+                      <a href={logo.url} target="_blank" title={logo.id}>
+                        <GatsbyImage alt={logo.id} image={img} />
+                      </a>
                     </SplideSlide>
                   );
                 }

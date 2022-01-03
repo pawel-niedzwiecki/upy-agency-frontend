@@ -1,4 +1,5 @@
 import * as styled from "styled-components";
+import "@splidejs/splide/dist/css/themes/splide-skyblue.min.css";
 
 interface GlobalStyleProps {
   theme: {
@@ -33,8 +34,8 @@ const GlobalStyle = styled.createGlobalStyle<GlobalStyleProps>`
     font-weight: normal;
     color: ${({ theme }) => theme.colorWhite};
     background-color: ${({ theme }) => theme.colorBlueDark};
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans",
-      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+      "Noto Color Emoji";
   }
 
   p,

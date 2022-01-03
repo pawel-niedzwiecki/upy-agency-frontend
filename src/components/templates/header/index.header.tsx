@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import React, { useState } from "react";
 import Brand from "assets/media/icon/logo.svg";
 import { ButtonInLink } from "components/atoms/button/component.button";
@@ -21,21 +22,21 @@ const HeaderComponent = () => {
             </MobileMenuButton>
             <List>
               <Item>
-                <ButtonInLink href="/e">Realizacje</ButtonInLink>
+                <Link to="/e">Realizacje</Link>
               </Item>
               <Item>
-                <ButtonInLink href="/s">Usługi</ButtonInLink>
+                <Link to="/s">Usługi</Link>
               </Item>
               <Item>
-                <ButtonInLink href="/about">O nas</ButtonInLink>
+                <Link to="/about">O nas</Link>
               </Item>
               <Item>
-                <ButtonInLink href="/contact">Kontakt</ButtonInLink>
+                <Link to="/contact">Kontakt</Link>
               </Item>
             </List>
-            <ButtonInLink className="onlineValuationLink" href="/">
+            <Link className="onlineValuationLink" to="/">
               Wycena online
-            </ButtonInLink>
+            </Link>
           </Box>
         </Container>
       </Header>

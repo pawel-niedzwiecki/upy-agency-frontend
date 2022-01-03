@@ -5,21 +5,16 @@ export const Button = styled.button``;
 
 const buttonwholestyle = css`
   border: none;
-  display: flex;
   cursor: pointer;
   font-size: 1.6rem;
   font-weight: bold;
   transition: all 0.3s;
   padding: 0.5rem 1rem;
   border-radius: 0.3rem;
+  display: inline-block;
   background-color: transparent;
   color: ${({ theme }) => theme.colorBlack};
   background-color: ${({ theme }) => theme.colorAqua};
-
-  @media all and (min-width: 768px) {
-    font-size: 2rem;
-    padding: 1rem 2rem;
-  }
 
   svg {
     height: 1.4rem;
@@ -36,21 +31,24 @@ const buttonwholestyle = css`
   }
 
   &:hover {
+    color: ${({ theme }) => theme.colorBlack};
     background-color: ${({ theme }) => theme.colorWhite};
-
     svg {
       padding-right: 0rem;
       padding-left: 1.6rem;
     }
   }
+
+  @media all and (min-width: 768px) {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+  }
 `;
 
-// create style
 export const ButtonStyled = styled.button`
   ${buttonwholestyle}
 `;
 
-// create style
 export const ButtonCyrlicStyled = styled.button`
   ${buttonwholestyle}
   width: 3rem;
@@ -78,7 +76,9 @@ export const ButtonOutLinkStyled = styled.a`
   ${buttonwholestyle}
 `;
 
-export const ButtonInLinkStyled = styled(Link)``;
+export const ButtonInLinkStyled = styled(Link)`
+  ${buttonwholestyle}
+`;
 
 export const ButtonSubmitStyled = styled.button`
   ${buttonwholestyle}

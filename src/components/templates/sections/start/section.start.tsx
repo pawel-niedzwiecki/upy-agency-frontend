@@ -3,19 +3,11 @@ import Typewriter from "typewriter-effect";
 import Brand from "assets/media/icon/logotyp.svg";
 import { graphql, useStaticQuery } from "gatsby";
 import ArrowBig from "assets/media/icon/arrowBig.svg";
-import {
-  Section,
-  BoxContent,
-  Form,
-  MovingElementBox,
-  SharpCircle,
-  AnimationLogo,
-  SharpTriangle,
-} from "./section.start.style";
+import Chat from "components/atoms/chat/component.chat";
 import { InputSelect } from "components/molecules/form/index.form";
 import { ButtonSubmit } from "components/atoms/button/component.button";
 import { MovingElement } from "components/atoms/animation/index.comonent.animation";
-import Chat from "components/atoms/chat/component.chat";
+import { Section, BoxContent, Form, MovingElementBox, SharpCircle, AnimationLogo, SharpTriangle } from "./section.start.style";
 
 const StartSectionComponent = () => {
   const [startAnimation, useStartAnimation] = useState(false);
