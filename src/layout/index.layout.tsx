@@ -4,6 +4,7 @@ import settings from "assets/style/settings";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "assets/style/GlobalStyle";
 import Header from "components/templates/header/index.header";
+import Footer from "components/templates/footer/index.footer";
 
 interface LayoutComponentProps {
   children: JSX.Element | JSX.Element[];
@@ -22,6 +23,7 @@ const LayoutComponent = ({ children }: LayoutComponentProps) => {
         <GlobalStyle />
         <Header />
         {children}
+        <Footer />
       </ThemeProvider>
     </>
   );

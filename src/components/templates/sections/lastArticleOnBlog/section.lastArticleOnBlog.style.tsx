@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  padding: 10rem 0;
+  @media all and (min-width: 768px) {
+    padding: 10rem 0;
+  }
 `;
 
 export const Title = styled.h2`
@@ -10,7 +12,7 @@ export const Title = styled.h2`
 
 export const BoxListArticle = styled.div`
   margin: 0 auto;
-  padding: 5rem 0;
+  padding-top: 5rem;
   max-width: 160rem;
 `;
 

@@ -21,7 +21,7 @@ export const Section = styled.section`
   @media all and (min-width: 960px) {
     height: 50vh;
     padding: 10rem 0;
-    min-height: 80rem;
+    min-height: 62rem;
     background-size: auto 60rem;
     background-repeat: no-repeat;
     background-position: 95% 150%;
@@ -47,7 +47,7 @@ export const Title = styled.h1`
 export const MovingElementBox = styled.div`
   display: none;
 
-  @media all and (min-width: 1024px) {
+  @media all and (min-width: 960px) {
     right: 5%;
     bottom: 5rem;
     z-index: 0;
