@@ -1,91 +1,44 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Section = styled.section`
   width: 100%;
+  height: 50vh;
   display: flex;
+  padding: 5rem 0;
   overflow: hidden;
   min-height: 30rem;
   position: relative;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-size: 90% auto;
-  height: calc(100vh - 21rem);
-  background-repeat: no-repeat;
+  background-size: 30rem auto;
   background-position: center;
+  background-repeat: no-repeat;
 
   @media all and (min-width: 768px) {
-    background-size: 70% auto;
-    height: calc(100vh - 21rem);
-  }
-
-  .Typewriter {
-    span {
-      font-size: 2.4rem;
-
-      @media all and (min-width: 768px) {
-        font-size: 3.6rem;
-      }
-    }
+    height: 50vh;
+    padding: 10rem 0;
+    min-height: 70rem;
+    background-size: auto 60rem;
   }
 `;
 
-export const BoxContent = styled.div`
-  z-index: 20;
-  width: 25rem;
-  display: flex;
-  margin: 0 auto;
-  flex-wrap: wrap;
-  position: relative;
-  justify-content: center;
+export const Title = styled.h1`
+  display: block;
+  font-size: 2.4rem;
+  text-align: center;
+  padding-bottom: 3rem;
 
   @media all and (min-width: 768px) {
-    width: 36rem;
+    font-size: 3.6rem;
   }
 `;
 
-export const Form = styled.form`
-  opacity: 0;
-  flex: 100%;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 10rem;
-  position: absolute;
-  animation-delay: 1500ms;
-  justify-content: center;
-  animation-duration: 600ms;
-  animation-fill-mode: forwards;
-  animation-name: SectionStartFormAnimation;
-
-  @keyframes SectionStartFormAnimation {
-    from {
-      opacity: 0;
-      margin-top: 10rem;
-    }
-    to {
-      opacity: 1;
-      margin-top: 4rem;
-    }
-  }
+export const Description = styled.p`
+  text-align: center;
 
   @media all and (min-width: 768px) {
-    @keyframes SectionStartFormAnimation {
-      from {
-        opacity: 0;
-        margin-top: 20rem;
-      }
-      to {
-        opacity: 1;
-        margin-top: 6rem;
-      }
-    }
-  }
-
-  button {
-    width: 100%;
-    display: block;
-    margin: ${({ theme }) => theme.break.main} 0;
+    font-size: 2rem;
   }
 `;
 
@@ -93,11 +46,11 @@ export const MovingElementBox = styled.div`
   display: none;
 
   @media all and (min-width: 768px) {
-    right: 0;
-    bottom: 5vh;
+    right: calc(50% - 30rem);
+    bottom: calc(50% - 30rem);
     z-index: 0;
-    width: 30rem;
-    height: 30rem;
+    width: 60rem;
+    height: 60rem;
     display: block;
     position: absolute;
   }
@@ -108,11 +61,11 @@ interface SharpCircleProps {
 }
 
 export const AnimationLogo = styled.div`
-  top: 0%;
-  left: 25%;
+  top: 10%;
+  right: 5%;
   z-index: 20;
-  width: 6rem;
-  height: 6rem;
+  width: 8rem;
+  height: 8rem;
   display: flex;
   overflow: hidden;
   position: absolute;
@@ -125,8 +78,8 @@ export const SharpCircle = styled.div<SharpCircleProps>`
   left: 0%;
   z-index: 0;
   display: flex;
-  width: 5rem;
-  height: 5rem;
+  width: 7rem;
+  height: 7rem;
   overflow: hidden;
   position: absolute;
   align-items: center;
@@ -162,8 +115,8 @@ export const SharpTriangle = styled.div<SharpCircleProps>`
   right: 10%;
   z-index: 20;
   display: flex;
-  width: 5rem;
-  height: 5rem;
+  width: 9rem;
+  height: 9rem;
   overflow: hidden;
   position: absolute;
   align-items: center;

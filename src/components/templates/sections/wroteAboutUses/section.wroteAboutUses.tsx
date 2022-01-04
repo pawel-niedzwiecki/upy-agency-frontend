@@ -5,7 +5,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Section, Title } from "./section.wroteAboutUses.style";
 import { Row, Col, Container } from "components/orgamis/flexboxgrid/index.flexboxgrid";
 
-const wroteAboutUses = () => {
+const SectionWroteAboutUsesComponent = () => {
   const { wroteAboutUses } = useStaticQuery(
     graphql`
       query {
@@ -84,4 +84,4 @@ const wroteAboutUses = () => {
   );
 };
 
-export default wroteAboutUses;
+export default SectionWroteAboutUsesComponent;
