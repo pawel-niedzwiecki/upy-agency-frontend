@@ -1,7 +1,13 @@
 import * as React from "react";
+import Layout from "layout/index.layout";
+import { Contact } from "components/templates/sections/index.sections";
 
-const NotFoundPage = () => {
-  return <>ok</>;
+const ContactPage = () => {
+  return (
+    <Layout>
+      <Contact />
+    </Layout>
+  );
 };
 
-export default NotFoundPage;
+export default ContactPage;
