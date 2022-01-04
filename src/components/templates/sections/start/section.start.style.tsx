@@ -10,13 +10,13 @@ export const Section = styled.section`
   flex-direction: column;
   justify-content: center;
   background-size: 90% auto;
-  height: calc(100vh - 21rem);
-  background-repeat: no-repeat;
+  height: calc(100vh - 6rem);
   background-position: center;
+  background-repeat: no-repeat;
 
   @media all and (min-width: 768px) {
     background-size: 70% auto;
-    height: calc(100vh - 21rem);
+    height: calc(100vh - 6rem);
   }
 
   .Typewriter {
