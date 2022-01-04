@@ -2,13 +2,7 @@
 import React from "react";
 
 // import style
-import {
-  ButtonStyled,
-  ButtonCyrlicStyled,
-  ButtonOutLinkStyled,
-  ButtonInLinkStyled,
-  ButtonSubmitStyled,
-} from "./component.button.style";
+import { ButtonStyled, ButtonCyrlicStyled, ButtonOutLinkStyled, ButtonInLinkStyled, ButtonSubmitStyled } from "./component.button.style";
 
 // create interface
 interface ButtonProps {
@@ -44,13 +38,14 @@ export const ButtonOutLink = ({ children, href, title }: ButtonOutLinkProps, pro
 
 interface ButtonInLinkProps {
   href: string;
+  style?: any;
   className?: string;
   children?: JSX.Element | JSX.Element[] | any;
 }
 
-export const ButtonInLink = ({ children, href, className }: ButtonInLinkProps) => {
+export const ButtonInLink = ({ children, href, className, style }: ButtonInLinkProps) => {
   return (
-    <ButtonInLinkStyled to={href} className={className}>
+    <ButtonInLinkStyled to={href} className={className} style={style}>
       {children}
     </ButtonInLinkStyled>
   );

@@ -28,10 +28,13 @@ const HeaderComponent = () => {
                 <Link to="/s">Usługi</Link>
               </Item>
               <Item>
-                <Link to="/about">O nas</Link>
+                <Link to="/b">Blog</Link>
               </Item>
               <Item>
-                <Link to="/contact">Kontakt</Link>
+                <Link to="/a">O nas</Link>
+              </Item>
+              <Item>
+                <Link to="/c">Kontakt</Link>
               </Item>
             </List>
             <Link className="onlineValuationLink" to="/">

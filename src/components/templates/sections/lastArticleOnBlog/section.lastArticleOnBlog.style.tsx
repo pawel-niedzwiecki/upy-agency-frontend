@@ -66,6 +66,7 @@ export const BoxAvatar = styled.div`
   min-height: 6rem;
   display: block;
   overflow: hidden;
+  position: relative;
   margin-right: 2rem;
   border-radius: 100%;
 `;

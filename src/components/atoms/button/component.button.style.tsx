@@ -33,6 +33,7 @@ const buttonwholestyle = css`
   &:hover {
     color: ${({ theme }) => theme.colorBlack};
     background-color: ${({ theme }) => theme.colorWhite};
+
     svg {
       padding-right: 0rem;
       padding-left: 1.6rem;
