@@ -24,8 +24,6 @@ const SectionInfoComponent = ({ data: { id, title, description } }: SectionInfoC
     `
   );
 
-  console.log(cube);
-
   return (
     <Section key={id} style={{ backgroundImage: `url(${cube.publicURL})` }}>
       <MovingElementBox>

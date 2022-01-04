@@ -36,12 +36,12 @@ const SectionfeaturedServicesComponent = () => {
               <Col xs={12} key={service.id}>
                 <BoxServices>
                   <Row>
-                    <Col xs={12} md={4}>
+                    <Col xs={12} md={4} lg={4}>
                       <ImgBox>
                         <GatsbyImage alt={service.title} image={service.cover.localFile.childImageSharp.gatsbyImageData} />
                       </ImgBox>
                     </Col>
-                    <Col xs={12} md={6} lg={4} style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                    <Col xs={12} md={6} lg={5} style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
                       <Title>{service.title}</Title>
                       <Excerpt>{service.excerpt}</Excerpt>
                       <ListOptions>

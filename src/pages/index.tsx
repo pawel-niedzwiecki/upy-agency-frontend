@@ -1,7 +1,7 @@
 import * as React from "react";
 import Layout from "layout/index.layout";
 import { graphql, useStaticQuery } from "gatsby";
-import { Info, Start, WroteAboutUses, ServicesComponent, TheyTrustedUses } from "components/templates/sections/index.sections";
+import { Info, Start, WroteAboutUses, ServicesComponent, TheyTrustedUses, LastArticleOnBlog } from "components/templates/sections/index.sections";
 
 const IndexPage = () => {
   const { home } = useStaticQuery(
@@ -25,6 +25,7 @@ const IndexPage = () => {
       <ServicesComponent />
       <TheyTrustedUses />
       <Info data={{ ...home.info }} />
+      <LastArticleOnBlog />
     </Layout>
   );
 };

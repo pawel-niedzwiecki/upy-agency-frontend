@@ -38,7 +38,7 @@ module.exports = {
         apiURL: `https://upy.herokuapp.com`,
         queryLimit: 1000,
         singleTypes: [`home`],
-        collectionTypes: [`executions`, `execution-categories`, `services`, `service-categories`, `wrote-about-uses`, `they-trusted-uses`],
+        collectionTypes: [`executions`, `execution-categories`, `services`, `service-categories`, `wrote-about-uses`, `they-trusted-uses`, `blogs`, `tags`, `users`],
       },
     },
   ],
