@@ -1,4 +1,5 @@
 import React from "react";
+import lodash from "lodash";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery, Link } from "gatsby";
 import { ButtonInLink } from "components/atoms/button/component.button";
@@ -32,6 +33,7 @@ const SectionfeaturedServicesComponent = () => {
       <Container>
         <Row>
           {home.services.map((service: any, index: number) => {
+            console.log(lodash.kebabCase(lodash.deburr(service.title)));
             return (
               <Col xs={12} key={service.id}>
                 <BoxServices>
@@ -45,8 +47,12 @@ const SectionfeaturedServicesComponent = () => {
                       <Title>{service.title}</Title>
                       <Excerpt>{service.excerpt}</Excerpt>
                       <ListOptions>
-                        <ButtonInLink href="/">WIĘCEJ</ButtonInLink>
-                        <Link to="/">WYCENA ONLINE</Link>
+                        <ButtonInLink href={`s/${lodash.kebabCase(lodash.deburr(service.title))}`} title="więcej">
+                          WIĘCEJ
+                        </ButtonInLink>
+                        <Link to="/quotation" title="wycena online">
+                          WYCENA ONLINE
+                        </Link>
                       </ListOptions>
                     </Col>
                   </Row>

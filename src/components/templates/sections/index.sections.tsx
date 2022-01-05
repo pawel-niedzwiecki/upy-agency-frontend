@@ -6,5 +6,6 @@ import AndHowWeOperate from "./andHowWeOperate/section.andHowWeOperate";
 import TheyTrustedUses from "./theyTrustedUses/section.theyTrustedUses";
 import ServicesComponent from "./featuredServices/section.featuredServices";
 import LastArticleOnBlog from "./lastArticleOnBlog/section.lastArticleOnBlog";
+import ListCategoryServicesAndExecutions from "./listCategoryServicesAndExecutions/section.listCategoryServicesAndExecutions";
 
-export { Info, Start, WroteAboutUses, TheyTrustedUses, ServicesComponent, LastArticleOnBlog, AndHowWeOperate, Contact };
+export { Info, Start, WroteAboutUses, TheyTrustedUses, ServicesComponent, LastArticleOnBlog, AndHowWeOperate, Contact, ListCategoryServicesAndExecutions };

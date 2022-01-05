@@ -22,10 +22,10 @@ const HeaderComponent = () => {
             </MobileMenuButton>
             <List>
               <Item>
-                <Link to="/e">Realizacje</Link>
+                <Link to="/e/c">Realizacje</Link>
               </Item>
               <Item>
-                <Link to="/s">Usługi</Link>
+                <Link to="/s/c">Usługi</Link>
               </Item>
               <Item>
                 <Link to="/b">Blog</Link>
@@ -37,7 +37,7 @@ const HeaderComponent = () => {
                 <Link to="/c">Kontakt</Link>
               </Item>
             </List>
-            <Link className="onlineValuationLink" to="/">
+            <Link className="onlineValuationLink" title="wycena online" to="/quotation">
               Wycena online
             </Link>
           </Box>

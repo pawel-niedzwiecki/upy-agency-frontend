@@ -57,10 +57,12 @@ const SectionAndHowWeOperateComponent = () => {
         <Row>
           <Col xs={12} lg={12} xl={6} style={{ display: "flex", flexDirection: "column" }}>
             <Title>I jak działamy ?</Title>
-            <ButtonInLink href="/" style={{ maxWidth: "max-content", marginBottom: "2rem" }}>
+            <ButtonInLink href="/quotation" style={{ maxWidth: "max-content", marginBottom: "2rem" }} title="wyceń projekt">
               WYCEŃ PROJEKT <ArrowBig />
             </ButtonInLink>
-            <Link to="/c">Napisz do nas</Link>
+            <Link to="/c" title="wyceń projekt">
+              Napisz do nas
+            </Link>
           </Col>
           <Col xs={12} lg={12} xl={6}></Col>
         </Row>

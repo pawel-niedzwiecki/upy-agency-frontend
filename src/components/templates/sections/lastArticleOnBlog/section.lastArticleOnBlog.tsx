@@ -1,4 +1,5 @@
 import React from "react";
+import lodash from "lodash";
 import Star from "assets/media/icon/star.svg";
 import StarEmpty from "assets/media/icon/starEmpty.svg";
 import { GatsbyImage } from "gatsby-plugin-image";
@@ -157,7 +158,7 @@ const SectionLastArticleOnBlogComponent = () => {
                         </AuthorBoxRangeArticle>
                       </AuthorBoxData>
                     </AuthorBox>
-                    <Link to="/" className="link">
+                    <Link to={`b/a/${lodash.kebabCase(lodash.deburr(art.title))}`} className="link" title="czytaj dalej">
                       CZYTAJ DALEJ
                     </Link>
                   </Article>
