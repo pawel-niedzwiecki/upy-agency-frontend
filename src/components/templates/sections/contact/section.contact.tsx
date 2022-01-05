@@ -1,5 +1,6 @@
 import { Link } from "gatsby";
 import { useForm } from "react-hook-form";
+import { graphql, useStaticQuery } from "gatsby";
 import React, { useContext, useState } from "react";
 import { SquareConent, MovingElement } from "components/atoms/animation/index.comonent.animation";
 import { emailRegex, telRegex, nameRegex } from "assets/regex/index.regex";
@@ -8,7 +9,6 @@ import { ButtonOutLink, ButtonSubmit } from "components/atoms/button/component.b
 import { Container, Row, Col } from "components/orgamis/flexboxgrid/index.flexboxgrid";
 import { Section, SelectBox, List, Header, BoxContact, Title, Form, BoxAnimation, SharpCircle, SharpSquare, SharpTriangle } from "./section.contact.styled";
 
-import noise from "assets/media/icon/noise.svg";
 import GitHub from "assets/media/icon/github.svg";
 import Linkedin from "assets/media/icon/linkedin.svg";
 import Instagram from "assets/media/icon/instagram.svg";
@@ -16,6 +16,18 @@ import Square from "assets/media/icon/square.svg";
 
 const ContactSectionComponent = () => {
   const [send, setSend] = useState(false);
+
+  const { noise } = useStaticQuery(
+    graphql`
+      query {
+        noise: file(name: { eq: "noise" }) {
+          id
+          name
+          publicURL
+        }
+      }
+    `
+  );
 
   const {
     reset,
@@ -98,19 +110,19 @@ const ContactSectionComponent = () => {
                 <li>
                   <List typ="level">
                     <li>
-                      <Link to="https://github.com/pawel-niedzwiecki" title="GitHub">
+                      <a href="/" title="GitHub">
                         <GitHub />
-                      </Link>
+                      </a>
                     </li>
                     <li>
-                      <Link to="https://www.instagram.com/uxupl/" title="Instagram">
+                      <a href="/" title="Instagram">
                         <Instagram />
-                      </Link>
+                      </a>
                     </li>
                     <li>
-                      <Link to="https://www.linkedin.com/in/pawel-niedzwiecki/" title="LinkedIn">
+                      <a href="/" title="LinkedIn">
                         <Linkedin />
-                      </Link>
+                      </a>
                     </li>
                   </List>
                 </li>
@@ -165,19 +177,19 @@ const ContactSectionComponent = () => {
         </Row>
         <BoxAnimation>
           <MovingElement>
-            <SharpCircle bg={noise} className="movieEL">
+            <SharpCircle bg={noise.publicURL} className="movieEL">
               <div className="isolate">
                 <div className="ball-shadow"></div>
                 <div className="ball-light"></div>
               </div>
             </SharpCircle>
-            <SharpSquare bg={noise} className="movieEL">
+            <SharpSquare bg={noise.publicURL} className="movieEL">
               <div className="isolate">
                 <div className="ball-shadow"></div>
                 <div className="ball-light"></div>
               </div>
             </SharpSquare>
-            <SharpTriangle bg={noise} className="movieEL">
+            <SharpTriangle bg={noise.publicURL} className="movieEL">
               <div className="isolate">
                 <div className="ball-shadow"></div>
                 <div className="ball-light"></div>

@@ -1,4 +1,3 @@
-// import plugin
 import styled, { css } from "styled-components";
 
 interface LabelProps {

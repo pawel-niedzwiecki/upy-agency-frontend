@@ -3,8 +3,8 @@ import { Helmet } from "react-helmet";
 import settings from "assets/style/settings";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "assets/style/GlobalStyle";
-import Header from "components/templates/header/index.header";
 import Footer from "components/templates/footer/index.footer";
+import Header from "components/templates/header/index.header";
 
 interface LayoutComponentProps {
   children: JSX.Element | JSX.Element[];
