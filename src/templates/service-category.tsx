@@ -5,41 +5,37 @@ import { graphql, useStaticQuery, Link } from "gatsby";
 import Breadcrumb from "components/templates/breadcrumb/index.breadcrumb";
 import { ListCategoryServicesAndExecutions } from "components/templates/sections/index.sections";
 
-const PageExecutionsCategory = ({ data, pageContext: { title } }: any) => {
+const PageServicesCategory = ({ data, pageContext: { title } }: any) => {
   const { categories, tiles } = data;
   const paths: { title: string; path: string }[] = [
     { title: "home", path: "/" },
-    { title: "wszystkie-realizacje", path: "/e/c" },
-    { title: `${lodash.kebabCase(lodash.deburr(title))}`, path: `/e/c/${lodash.kebabCase(lodash.deburr(title))}` },
+    { title: "wszystkie-usługi", path: "/s/c" },
+    { title: `${lodash.kebabCase(lodash.deburr(title))}`, path: `/s/c/${lodash.kebabCase(lodash.deburr(title))}` },
   ];
 
   return (
     <Layout>
       <Breadcrumb paths={paths} />
-      <ListCategoryServicesAndExecutions categories={categories.nodes} tiles={tiles.nodes} type="execution" active={title} />
+      <ListCategoryServicesAndExecutions categories={categories.nodes} tiles={tiles.nodes} type="services" active={title} />
     </Layout>
   );
 };
 
 export const blogListQuery = graphql`
-  query PageExecutionsCategoryQuery($title: String!) {
-    categories: allStrapiExecutionCategories {
+  query PageServicesCategoryQuery($title: String!) {
+    categories: allStrapiServiceCategories {
       nodes {
         id
         title
       }
     }
-    tiles: allStrapiExecutions(filter: { execution_category: { title: { eq: $title } } }) {
+    tiles: allStrapiServices(filter: { service_category: { title: { eq: $title } } }) {
       nodes {
         id
         title
-        technologies {
-          id
-          title
-        }
       }
     }
   }
 `;
 
-export default PageExecutionsCategory;
+export default PageServicesCategory;

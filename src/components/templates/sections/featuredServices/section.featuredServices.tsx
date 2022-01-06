@@ -33,7 +33,6 @@ const SectionfeaturedServicesComponent = () => {
       <Container>
         <Row>
           {home.services.map((service: any, index: number) => {
-            console.log(lodash.kebabCase(lodash.deburr(service.title)));
             return (
               <Col xs={12} key={service.id}>
                 <BoxServices>

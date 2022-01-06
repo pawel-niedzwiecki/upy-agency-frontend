@@ -6,7 +6,12 @@ import Breadcrumb from "components/templates/breadcrumb/index.breadcrumb";
 import { ListCategoryServicesAndExecutions } from "components/templates/sections/index.sections";
 
 const ExecutionsCategoryPage = () => {
-  const { categories } = useStaticQuery(
+  const paths = [
+    { title: "home", path: "/" },
+    { title: "wszystkie-realizacje", path: "/e/c" },
+  ];
+
+  const { categories, tiles } = useStaticQuery(
     graphql`
       query {
         categories: allStrapiExecutionCategories {
@@ -15,14 +20,24 @@ const ExecutionsCategoryPage = () => {
             title
           }
         }
+        tiles: allStrapiExecutions {
+          nodes {
+            id
+            title
+            technologies {
+              id
+              title
+            }
+          }
+        }
       }
     `
   );
 
   return (
     <Layout>
-      <Breadcrumb />
-      <ListCategoryServicesAndExecutions categories={categories.nodes} active="all" />
+      <Breadcrumb paths={paths} />
+      <ListCategoryServicesAndExecutions categories={categories.nodes} tiles={tiles.nodes} type="execution" active="all" />
     </Layout>
   );
 };
