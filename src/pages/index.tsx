@@ -1,10 +1,10 @@
 import * as React from "react";
 import Layout from "layout/index.layout";
 import { graphql, useStaticQuery } from "gatsby";
-import { Info, Start, WroteAboutUses, ServicesComponent, TheyTrustedUses, LastArticleOnBlog, AndHowWeOperate } from "components/templates/sections/index.sections";
+import { Info, Start, ServicesComponent, LastArticleOnBlog, AndHowWeOperate, LogoCarusel } from "components/templates/sections/index.sections";
 
 const IndexPage = () => {
-  const { home } = useStaticQuery(
+  const { home, theyTrustedUses, wroteAboutUses } = useStaticQuery(
     graphql`
       query {
         home: strapiHome {
@@ -14,16 +14,46 @@ const IndexPage = () => {
             description
           }
         }
+        theyTrustedUses: allStrapiTheyTrustedUses {
+          nodes {
+            id
+            url
+            title
+            brand {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
+        }
+        wroteAboutUses: allStrapiWroteAboutUses {
+          nodes {
+            id
+            url
+            title
+            brand {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
+        }
       }
     `
   );
 
+  console.log(theyTrustedUses);
+
   return (
     <Layout>
       <Start />
-      <WroteAboutUses />
+      <LogoCarusel title="Pisali o nas" brands={wroteAboutUses.nodes} />
       <ServicesComponent />
-      <TheyTrustedUses />
+      <LogoCarusel title="Zaufali nam" brands={theyTrustedUses.nodes} />
       <Info data={{ ...home.info }} />
       <LastArticleOnBlog />
       <AndHowWeOperate />

@@ -5,15 +5,38 @@ export const Section = styled.section`
   background-size: 60% auto;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: calc(100vh - 18rem);
+  min-height: calc(100vh - 43rem);
 
   @media all and (max-width: 767px) {
+    .client {
+      order: 0;
+      p,
+      h1 {
+        text-align: left;
+      }
+
+      ul {
+        justify-content: flex-start;
+        li {
+          padding-left: 0;
+          padding-right: ${({ theme }) => theme.break.main};
+        }
+      }
+    }
+
+    .description {
+      order: 1;
+    }
+  }
+
+  @media all and (max-width: 959px) {
     .menu {
       bottom: 0;
       width: 100%;
       z-index: 999;
       display: flex;
       position: fixed;
+      transition: all 0.3s;
       background: ${({ theme }) => theme.colorBlue};
       border-top: 0.3rem solid ${({ theme }) => theme.colorBorder};
 
@@ -48,26 +71,6 @@ export const Section = styled.section`
           }
         }
       }
-    }
-
-    .client {
-      order: 0;
-      p,
-      h1 {
-        text-align: left;
-      }
-
-      ul {
-        justify-content: flex-start;
-        li {
-          padding-left: 0;
-          padding-right: ${({ theme }) => theme.break.main};
-        }
-      }
-    }
-
-    .description {
-      order: 1;
     }
   }
 `;

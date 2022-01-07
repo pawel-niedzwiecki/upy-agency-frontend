@@ -1,5 +1,4 @@
 import * as styled from "styled-components";
-import "@splidejs/splide/dist/css/themes/splide-skyblue.min.css";
 
 interface GlobalStyleProps {
   theme: {

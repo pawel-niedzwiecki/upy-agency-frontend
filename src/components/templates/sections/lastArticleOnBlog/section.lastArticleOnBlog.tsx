@@ -69,7 +69,7 @@ const SectionLastArticleOnBlogComponent = () => {
           nodes {
             id
             url
-            logo {
+            brand {
               localFile {
                 childImageSharp {
                   gatsbyImageData
