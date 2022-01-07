@@ -1,11 +1,75 @@
 import styled, { css } from "styled-components";
 
 export const Section = styled.section`
-  min-height: 60rem;
+  padding-bottom: 10rem;
   background-size: 60% auto;
-  height: calc(100vh - 18rem);
   background-position: center;
   background-repeat: no-repeat;
+  min-height: calc(100vh - 18rem);
+
+  @media all and (max-width: 767px) {
+    .menu {
+      bottom: 0;
+      width: 100%;
+      z-index: 999;
+      display: flex;
+      position: fixed;
+      background: ${({ theme }) => theme.colorBlue};
+      border-top: 0.3rem solid ${({ theme }) => theme.colorBorder};
+
+      h2 {
+        padding: 0;
+        font-size: 1.4em;
+        font-weight: bold;
+      }
+
+      div {
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+      }
+
+      ul {
+        width: 100%;
+        display: flex;
+        overflow: scroll;
+        flex-wrap: nowrap;
+        margin-left: 2rem;
+
+        li {
+          position: relative;
+          p {
+            padding: 1rem 2rem;
+            white-space: nowrap;
+            border-radius: 0.3rem;
+          }
+          .active {
+            background: ${({ theme }) => theme.colorBlueDark};
+          }
+        }
+      }
+    }
+
+    .client {
+      order: 0;
+      p,
+      h1 {
+        text-align: left;
+      }
+
+      ul {
+        justify-content: flex-start;
+        li {
+          padding-left: 0;
+          padding-right: ${({ theme }) => theme.break.main};
+        }
+      }
+    }
+
+    .description {
+      order: 1;
+    }
+  }
 `;
 
 type BoxStickyType = {
@@ -16,8 +80,10 @@ export const BoxSticky = styled.div<BoxStickyType>`
   left: 0;
   top: 8rem;
   z-index: 10;
+
   position: sticky;
   border-radius: 0.3rem;
+
   ${({ background, theme }) =>
     background &&
     css`

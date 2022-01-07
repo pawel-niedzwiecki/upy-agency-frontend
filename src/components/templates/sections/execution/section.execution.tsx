@@ -47,7 +47,7 @@ const SectionExecutionComponent = ({ data }: any) => {
     <Section style={{ backgroundImage: `url(${cube.publicURL})` }}>
       <Container>
         <Row>
-          <Col xs={3}>
+          <Col xs={12} lg={3} className="menu">
             <BoxSticky>
               <Header>Sekcje</Header>
               <List>
@@ -63,7 +63,7 @@ const SectionExecutionComponent = ({ data }: any) => {
               </List>
             </BoxSticky>
           </Col>
-          <Col xs={6} style={{ marginTop: "2rem" }}>
+          <Col xs={12} md={8} lg={6} style={{ marginTop: "2rem" }} className="description">
             <Header>Start</Header>
             <Description>
               <ReactMarkdown>{start}</ReactMarkdown>
@@ -73,7 +73,7 @@ const SectionExecutionComponent = ({ data }: any) => {
               <ReactMarkdown>{purposeandprocess}</ReactMarkdown>
             </Description>
           </Col>
-          <Col xs={3}>
+          <Col xs={12} md={4} lg={3} className="client">
             <BoxSticky background>
               <ClientBox>
                 <ClientBoxHeader>Klient</ClientBoxHeader>
