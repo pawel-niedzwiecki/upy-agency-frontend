@@ -21,7 +21,7 @@ const PageServicesCategory = ({ data, pageContext: { title } }: any) => {
   );
 };
 
-export const blogListQuery = graphql`
+export const PageServicesCategoryQuery = graphql`
   query PageServicesCategoryQuery($title: String!) {
     categories: allStrapiServiceCategories {
       nodes {

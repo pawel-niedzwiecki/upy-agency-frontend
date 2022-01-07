@@ -4,22 +4,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Button, ButtonInLink } from "components/atoms/button/component.button";
 import { SquareConent } from "components/atoms/animation/index.comonent.animation";
 import { Container, Row, Col } from "components/orgamis/flexboxgrid/index.flexboxgrid";
-import {
-  Section,
-  SelectBox,
-  List,
-  Item,
-  Header,
-  FlipBox,
-  FlipBoxInner,
-  FlipBoxFront,
-  FlipBoxFrontHeader,
-  FlipBoxBack,
-  FlipBoxHeader,
-  FlipBoxList,
-  FlipBoxListItem,
-  FlipBoxButton,
-} from "./section.listCategoryServicesAndExecutions.style";
+import { Section, SelectBox, List, Item, Header } from "./section.listCategoryServicesAndExecutions.style";
 
 const SectionListCategoryServicesAndExecutionsComponent = ({ categories, active, type, tiles }: any) => {
   const [sendRequest, setSendRequest] = useState(false);
@@ -54,9 +39,7 @@ const SectionListCategoryServicesAndExecutionsComponent = ({ categories, active,
         <Row>
           <Col xs={12} md={4} lg={3}>
             <SelectBox className={activeMobileSticky ? "sticky" : null}>
-              <Header>
-                Relizacje <span>:</span>
-              </Header>
+              <Header>{type === "execution" ? "Realizacje" : "Usługi"}</Header>
               <List>
                 <Item active={filtrPortfolio === "all" ? true : false} key={"all"}>
                   <Link to={type === "execution" ? "/e/c" : "/s/c"}>Wszystko</Link>
@@ -76,33 +59,7 @@ const SectionListCategoryServicesAndExecutionsComponent = ({ categories, active,
               {tiles.map((execution: any) => {
                 return (
                   <Col xs={12} md={6} lg={4} className="col" key={execution.id}>
-                    <FlipBox>
-                      <FlipBoxInner>
-                        <FlipBoxFront>
-                          <FlipBoxFrontHeader>{execution.title}</FlipBoxFrontHeader>
-                        </FlipBoxFront>
-                        <FlipBoxBack>
-                          {execution.technologies && (
-                            <>
-                              <FlipBoxHeader>Użyte technologie</FlipBoxHeader>
-                              <FlipBoxList>
-                                {execution.technologies.map((technologie: any) => {
-                                  return (
-                                    <FlipBoxListItem key={technologie.id}>
-                                      <span>#</span>
-                                      {technologie.title}
-                                    </FlipBoxListItem>
-                                  );
-                                })}
-                              </FlipBoxList>
-                            </>
-                          )}
-                          <FlipBoxButton style={{ justifyContent: !execution.technologies && "center" }}>
-                            <ButtonInLink href={`${type === "execution" ? "/e" : "/s"}/${lodash.kebabCase(lodash.deburr(execution.title))}`}>Więcej</ButtonInLink>
-                          </FlipBoxButton>
-                        </FlipBoxBack>
-                      </FlipBoxInner>
-                    </FlipBox>
+                    <Link to={`${type === "execution" ? "/e" : "/s"}/${lodash.kebabCase(lodash.deburr(execution.title))}`}>{execution.title}</Link>
                   </Col>
                 );
               })}

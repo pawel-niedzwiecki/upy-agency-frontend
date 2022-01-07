@@ -2,11 +2,8 @@ import styled from "styled-components";
 
 export const BreadcrumbBox = styled.div`
   width: 100%;
-  margin-top: 3rem;
   padding: 2rem 1rem;
   border-radius: 0.3rem;
-
-  background: linear-gradient(90deg, rgb(25, 32, 55) 20%, rgb(10, 18, 42) 100%);
 `;
 
 export const ListPath = styled.ul`
@@ -25,21 +22,23 @@ export const Path = styled.li`
   white-space: nowrap;
 
   a {
-    color: ${({ theme }) => theme.colorWhite};
-
-    &:hover {
-      color: ${({ theme }) => theme.colorAqua};
-    }
+    font-size: 1.4rem;
   }
 
   &::after {
-    right: 0.8rem;
+    top: 0.2rem;
     content: "/";
+    right: 0.8rem;
+    font-size: 1.4rem;
     position: absolute;
     color: ${({ theme }) => theme.colorGray};
   }
 
   &:nth-last-child(1) {
+    a {
+      cursor: no-drop;
+      color: ${({ theme }) => theme.colorWhite};
+    }
     &::after {
       display: none;
     }

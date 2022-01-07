@@ -11,6 +11,12 @@ exports.createPages = async ({ graphql, actions }) => {
           title
         }
       }
+      allStrapiExecutions {
+        nodes {
+          id
+          title
+        }
+      }
       allStrapiServiceCategories {
         nodes {
           id
@@ -24,6 +30,14 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `e/c/${lodash.kebabCase(lodash.deburr(content.title))}`,
       component: require.resolve(`./src/templates/executions-category.tsx`),
+      context: { title: content.title, id: content.id, content, index },
+    });
+  });
+
+  queryResults.data.allStrapiExecutions.nodes.forEach((content, index) => {
+    createPage({
+      path: `e/${lodash.kebabCase(lodash.deburr(content.title))}`,
+      component: require.resolve(`./src/templates/execution.tsx`),
       context: { title: content.title, id: content.id, content, index },
     });
   });
