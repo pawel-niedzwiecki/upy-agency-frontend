@@ -46,8 +46,6 @@ const IndexPage = () => {
     `
   );
 
-  console.log(theyTrustedUses);
-
   return (
     <Layout>
       <Start />

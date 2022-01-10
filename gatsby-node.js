@@ -23,6 +23,12 @@ exports.createPages = async ({ graphql, actions }) => {
           title
         }
       }
+      allStrapiServices {
+        nodes {
+          id
+          title
+        }
+      }
     }
   `);
 
@@ -46,6 +52,14 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `s/c/${lodash.kebabCase(lodash.deburr(content.title))}`,
       component: require.resolve(`./src/templates/service-category.tsx`),
+      context: { title: content.title, id: content.id, content, index },
+    });
+  });
+
+  queryResults.data.allStrapiServices.nodes.forEach((content, index) => {
+    createPage({
+      path: `s/${lodash.kebabCase(lodash.deburr(content.title))}`,
+      component: require.resolve(`./src/templates/service.tsx`),
       context: { title: content.title, id: content.id, content, index },
     });
   });

@@ -29,6 +29,7 @@ export const PageExecutionsCategoryQuery = graphql`
         title
       }
     }
+
     tiles: allStrapiExecutions(filter: { execution_category: { title: { eq: $title } } }) {
       nodes {
         id
