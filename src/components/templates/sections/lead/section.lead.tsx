@@ -82,7 +82,7 @@ const SectionLeadComponent = ({ data: { id, title, description, options } }: { d
     <Section>
       <Container>
         <Row>
-          <Col xs={12} lg={7} className="description">
+          <Col xs={12} lg={6} className="description">
             <BoxContent>
               <Title>{title}</Title>
               <Description>{description}</Description>
@@ -97,7 +97,7 @@ const SectionLeadComponent = ({ data: { id, title, description, options } }: { d
               </ListOptions>
             </BoxContent>
           </Col>
-          <Col xs={12} lg={5} className="form">
+          <Col xs={12} lg={6} className="form">
             <TitleForm>Umów się na darmową konsultację</TitleForm>
             <Form
               onSubmit={handleSubmit((d) => {

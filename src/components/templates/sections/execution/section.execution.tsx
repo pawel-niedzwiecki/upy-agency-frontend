@@ -61,6 +61,22 @@ const SectionExecutionComponent = ({ data }: any) => {
         }, 10);
       }
     });
+
+    return () => {
+      document.removeEventListener("scroll", () => {
+        allActiveBox = [];
+        if (!!elRef.current.length) {
+          clearTimeout(lastScroll);
+          lastScroll = setTimeout(() => {
+            elRef.current.forEach((_: any, i: number) => {
+              if (elRef.current[i].getBoundingClientRect().top + 100 < 0) return null;
+              allActiveBox.push(i);
+            });
+            setActiveSection(elRef.current.length - allActiveBox.length);
+          }, 10);
+        }
+      });
+    };
   }, [elRef]);
 
   return (
