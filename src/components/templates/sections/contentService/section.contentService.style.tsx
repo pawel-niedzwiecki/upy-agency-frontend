@@ -7,7 +7,7 @@ type Sitetype = {
 export const Section = styled.section<Sitetype>`
   width: 100%;
   display: flex;
-  padding: 10rem 0;
+  padding: 5rem 0;
   position: relative;
 
   .description {
@@ -18,6 +18,11 @@ export const Section = styled.section<Sitetype>`
   .img {
     order: 0;
     padding-bottom: 4rem;
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
   }
 
   @media all and (min-width: 768px) {
