@@ -1,5 +1,6 @@
 import lodash from "lodash";
 import Star from "assets/media/icon/star.svg";
+import Image from "gatsby-image";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery, Link } from "gatsby";
 import StarEmpty from "assets/media/icon/starEmpty.svg";
@@ -15,6 +16,7 @@ import {
   Header,
   Article,
   ArticleImage,
+  ArticleContentBox,
   ArticleTitle,
   ArticleTags,
   Tag,
@@ -27,17 +29,18 @@ import {
   AuthorBoxRangeArticleStar,
 } from "./section.articleList.style";
 
-const SectionArticleListComponent = () => {
-  const [sendRequest, setSendRequest] = useState(false);
-  const [activeMobileSticky, setActiveMobileSticky] = useState(false);
-
-  const { circle, executions } = useStaticQuery(
+const SectionArticleListComponent = ({ articles, active }: any) => {
+  const { tags } = useStaticQuery(
     graphql`
       query {
-        circle: file(name: { eq: "circle" }) {
-          id
-          name
-          publicURL
+        tags: allStrapiTags(sort: { fields: blogs, order: DESC }) {
+          nodes {
+            id
+            title
+            blogs {
+              id
+            }
+          }
         }
       }
     `
@@ -61,67 +64,87 @@ const SectionArticleListComponent = () => {
     <Section>
       <Container>
         <Row>
-          <Col xs={12} md={4} lg={3}>
-            <SelectBox className={activeMobileSticky ? "sticky" : null}>
+          <Col xs={12} md={4} lg={3} className="menu">
+            <SelectBox>
               <Header>Popularne Tagi</Header>
               <List>
-                <Item>
-                  <Link to="/">
+                <Item active={active === "all" ? true : false}>
+                  <Link to="/b">
                     <span>#</span>Wszystko
                   </Link>
-                  <Link to="/">
-                    <span>#</span>Pozycjonwoanie
-                  </Link>
-                  <Link to="/">
-                    <span>#</span>Adwords
-                  </Link>
-                  <Link to="/">
-                    <span>#</span>Optymalizacja
-                  </Link>
                 </Item>
+                {tags.nodes.map((tag: any, i: number) => {
+                  if (i > 10) return null;
+                  return (
+                    <Item key={tag.id} active={active === tag.title ? true : false}>
+                      <Link to={`/b/t/${lodash.kebabCase(lodash.deburr(tag.title))}`}>
+                        <span>#</span>
+                        {tag.title}
+                      </Link>
+                    </Item>
+                  );
+                })}
               </List>
             </SelectBox>
           </Col>
           <Col xs={12} md={8} lg={9} style={{ zIndex: 1 }}>
             <Row>
-              <Col xs={12}>
-                <Article>
-                  <ArticleImage></ArticleImage>
-                  <ArticleTitle>Uzupełnianie komend Git na Mac OS X</ArticleTitle>
-                  <ArticleTags>
-                    <Tag>
-                      <span>#</span>css
-                    </Tag>
-                  </ArticleTags>
-                </Article>
-                <AuthorBox>
-                  <BoxAvatar>{/* <GatsbyImage alt={art.users_permissions_user.username} image={art.users_permissions_user.avatar.localFile.childImageSharp.gatsbyImageData} /> */}</BoxAvatar>
-                  <AuthorBoxData>
-                    <AuthorBoxName>Paweł Niedźwiecki</AuthorBoxName>
-                    <AuthorBoxDataAdded>{calcDate(new Date())}</AuthorBoxDataAdded>
-                    <AuthorBoxRangeArticle>
-                      <AuthorBoxRangeArticleStar>
-                        <Star />
-                      </AuthorBoxRangeArticleStar>
-                      <AuthorBoxRangeArticleStar>
-                        <Star />
-                      </AuthorBoxRangeArticleStar>
-                      <AuthorBoxRangeArticleStar>
-                        <Star />
-                      </AuthorBoxRangeArticleStar>
-                      <AuthorBoxRangeArticleStar>
-                        <Star />
-                      </AuthorBoxRangeArticleStar>
-                      <AuthorBoxRangeArticleStar>
-                        <StarEmpty />
-                      </AuthorBoxRangeArticleStar>
-                    </AuthorBoxRangeArticle>
-                  </AuthorBoxData>
-                </AuthorBox>
-                <Link to={`b/a/${lodash.kebabCase(lodash.deburr("title"))}`} className="link" title="czytaj dalej">
-                  CZYTAJ DALEJ
-                </Link>
-              </Col>
+              {articles.map((article: any, i: number) => {
+                if (i > 10) return null;
+                console.log(article);
+                return (
+                  <Col xs={12} key={article.id}>
+                    <Article>
+                      <ArticleImage to={`/b/a/${lodash.kebabCase(lodash.deburr(article.title))}`}>
+                        <GatsbyImage image={article.cover.localFile.childImageSharp.gatsbyImageData} alt={article.title} />
+                      </ArticleImage>
+                      <ArticleContentBox>
+                        <ArticleTitle>{article.title}</ArticleTitle>
+                        <ArticleTags>
+                          {article.tags.map((tag: any) => {
+                            return (
+                              <Tag key={tag.id}>
+                                <span>#</span>
+                                {tag.title}
+                              </Tag>
+                            );
+                          })}
+                        </ArticleTags>
+
+                        <AuthorBox>
+                          <BoxAvatar>
+                            <GatsbyImage alt={article.users_permissions_user.username} image={article.users_permissions_user.avatar.localFile.childImageSharp.gatsbyImageData} />
+                          </BoxAvatar>
+                          <AuthorBoxData>
+                            <AuthorBoxName>{article.users_permissions_user.username}</AuthorBoxName>
+                            <AuthorBoxDataAdded>{calcDate(article.updatedAt)}</AuthorBoxDataAdded>
+                            <AuthorBoxRangeArticle>
+                              <AuthorBoxRangeArticleStar>
+                                <Star />
+                              </AuthorBoxRangeArticleStar>
+                              <AuthorBoxRangeArticleStar>
+                                <Star />
+                              </AuthorBoxRangeArticleStar>
+                              <AuthorBoxRangeArticleStar>
+                                <Star />
+                              </AuthorBoxRangeArticleStar>
+                              <AuthorBoxRangeArticleStar>
+                                <Star />
+                              </AuthorBoxRangeArticleStar>
+                              <AuthorBoxRangeArticleStar>
+                                <StarEmpty />
+                              </AuthorBoxRangeArticleStar>
+                            </AuthorBoxRangeArticle>
+                          </AuthorBoxData>
+                        </AuthorBox>
+                        <Link to={`/b/a/${lodash.kebabCase(lodash.deburr(article.title))}`} className="link" title="czytaj dalej">
+                          CZYTAJ DALEJ
+                        </Link>
+                      </ArticleContentBox>
+                    </Article>
+                  </Col>
+                );
+              })}
             </Row>
           </Col>
         </Row>

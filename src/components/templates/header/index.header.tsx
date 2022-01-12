@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
-import React, { useEffect, useState } from "react";
 import Brand from "assets/media/icon/logo.svg";
+import React, { useEffect, useState } from "react";
 
 import { ButtonInLink } from "components/atoms/button/component.button";
 import { Container } from "components/orgamis/flexboxgrid/index.flexboxgrid";

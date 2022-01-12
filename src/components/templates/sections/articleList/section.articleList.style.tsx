@@ -1,24 +1,46 @@
 import styled, { css } from "styled-components";
+import { Link } from "gatsby";
 
-export const Section = styled.section``;
+export const Section = styled.section`
+  padding: 2rem 0;
+
+  @media all and (max-width: 767px) {
+    .menu {
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 99;
+      display: flex;
+      position: fixed;
+      background: ${({ theme }) => theme.colorGray};
+      padding: ${({ theme }) => theme.break.big} ${({ theme }) => theme.break.main};
+    }
+  }
+`;
 
 export const SelectBox = styled.div`
   left: 0;
   bottom: 0;
+  top: 8rem;
   width: 100%;
   z-index: 10;
   display: flex;
-  position: fixed;
+  position: sticky;
   align-items: center;
-  border-radius: 0.3rem;
-  padding: ${({ theme }) => theme.break.big};
-  background: ${({ theme }) => theme.colorBlue};
-  border-top: 0.3rem solid ${({ theme }) => theme.colorBorder};
 
   @media all and (min-width: 768px) {
-    border-top: none;
-    position: relative;
-    display: inline-block;
+    flex-wrap: wrap;
+  }
+`;
+
+export const Header = styled.h1`
+  font-size: 2rem;
+  font-weight: bold;
+  white-space: nowrap;
+
+  @media all and (min-width: 768px) {
+    font-size: 3rem;
+    margin-bottom: 1rem;
   }
 `;
 
@@ -37,47 +59,107 @@ export const List = styled.ul`
   }
 `;
 
-export const Item = styled.li`
+type ItemType = {
+  active?: boolean;
+};
+
+export const Item = styled.li<ItemType>`
   position: relative;
+
+  padding-right: ${({ theme }) => theme.break.main};
+
+  @media all and (min-width: 768px) {
+  }
 
   a {
     display: block;
     font-size: 1.4rem;
     white-space: nowrap;
-    padding: ${({ theme }) => theme.break.main} ${({ theme }) => theme.break.big};
+    border-radius: 0.3rem;
+    padding: ${({ theme }) => theme.break.main};
+
+    ${({ active, theme }) =>
+      active
+        ? css`
+            cursor: no-drop;
+            color: ${theme.colorWhite};
+            background: ${theme.colorBlack};
+          `
+        : null}
+
+    span {
+      opacity: 0.4;
+    }
 
     @media all and (min-width: 768px) {
-      margin: ${({ theme }) => theme.break.main} 0;
-      padding: ${({ theme }) => theme.break.main} ${({ theme }) => theme.break.big};
-    }
-
-    &:hover {
-      background: ${({ theme }) => theme.colorBlueDark};
+      padding: ${({ theme }) => theme.break.main} 0;
     }
   }
 `;
 
-export const Header = styled.h1`
-  font-size: 2rem;
-  font-weight: bold;
-  white-space: nowrap;
+export const Article = styled.div`
+  width: 100%;
+  height: auto;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  border-radius: 0.3rem;
+  flex-direction: column;
+  background: ${({ theme }) => theme.colorGray};
+  margin-bottom: ${({ theme }) => theme.break.big};
+`;
+
+export const ArticleImage = styled(Link)`
+  width: 100%;
+  height: 25rem;
+
+  .gatsby-image-wrapper {
+    width: 100%;
+    height: 100%;
+  }
 
   @media all and (min-width: 768px) {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    height: 40rem;
   }
 `;
 
-export const Article = styled.div``;
-export const ArticleImage = styled.div``;
-export const ArticleTitle = styled.div``;
-export const ArticleTags = styled.div``;
-export const Tag = styled.div``;
+export const ArticleContentBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  padding: ${({ theme }) => theme.break.big};
+
+  .link {
+    margin-left: auto;
+    font-weight: bold;
+    padding-top: ${({ theme }) => theme.break.big};
+  }
+`;
+
+export const ArticleTitle = styled.h2`
+  width: 100%;
+  font-size: 3.6rem;
+  font-weight: bold;
+`;
+
+export const ArticleTags = styled.ul`
+  width: 100%;
+  display: flex;
+  padding: ${({ theme }) => theme.break.main} 0;
+`;
+
+export const Tag = styled.li`
+  position: relative;
+  padding-right: ${({ theme }) => theme.break.main};
+  span {
+    opacity: 0.4;
+  }
+`;
 
 export const AuthorBox = styled.div`
   flex: 100%;
   display: flex;
-  padding-bottom: 2rem;
+  padding-top: ${({ theme }) => theme.break.big};
 `;
 export const BoxAvatar = styled.div`
   max-width: 6rem;
@@ -98,13 +180,13 @@ export const AuthorBoxData = styled.div`
 export const AuthorBoxName = styled.p`
   width: 100%;
   display: block;
-  font-size: 1.4rem;
+  font-weight: bold;
 `;
 
 export const AuthorBoxDataAdded = styled.p`
   width: 100%;
   display: block;
-  font-size: 1.4rem;
+  font-size: 1rem;
   text-transform: uppercase;
 `;
 
@@ -115,8 +197,9 @@ export const AuthorBoxRangeArticle = styled.ul`
 
 export const AuthorBoxRangeArticleStar = styled.li`
   padding-right: 0.5rem;
+
   svg {
     width: 1.5rem;
-    fill: ${({ theme }) => theme.colorAqua};
+    fill: ${({ theme }) => theme.colorWhite};
   }
 `;

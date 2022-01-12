@@ -12,7 +12,7 @@ export const Section = styled.section`
 
   @media all and (min-width: 768px) {
     padding: 6rem 0 10rem 0;
-    height: calc(100vh - 18rem);
+    height: calc(100vh - 24rem);
   }
 
   .col {

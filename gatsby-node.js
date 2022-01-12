@@ -29,6 +29,15 @@ exports.createPages = async ({ graphql, actions }) => {
           title
         }
       }
+      allStrapiTags {
+        nodes {
+          id
+          title
+          blogs {
+            id
+          }
+        }
+      }
     }
   `);
 
@@ -60,6 +69,14 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `s/${lodash.kebabCase(lodash.deburr(content.title))}`,
       component: require.resolve(`./src/templates/service.tsx`),
+      context: { title: content.title, id: content.id, content, index },
+    });
+  });
+
+  queryResults.data.allStrapiTags.nodes.forEach((content, index) => {
+    createPage({
+      path: `b/t/${lodash.kebabCase(lodash.deburr(content.title))}`,
+      component: require.resolve(`./src/templates/article-category.tsx`),
       context: { title: content.title, id: content.id, content, index },
     });
   });
