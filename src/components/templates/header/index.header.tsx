@@ -1,21 +1,34 @@
 import { Link } from "gatsby";
 import React, { useEffect, useState } from "react";
 import Brand from "assets/media/icon/logo.svg";
-import useWindowData from "hooks/hooks.windowData";
+
 import { ButtonInLink } from "components/atoms/button/component.button";
 import { Container } from "components/orgamis/flexboxgrid/index.flexboxgrid";
 import { Header, Logo, List, Item, Box, MobileMenuButton, BreakBoxHeader } from "./index.header.style";
 
 const HeaderComponent = () => {
-  const { pageScrollY } = useWindowData();
+  const [activeMenu, setActivemenu] = useState(false);
   const [mobileMenuSwitch, setMobileMenuSwitch] = useState(false);
+
+  const setScroll = () => {
+    if (window.pageYOffset < 120 && activeMenu) return setActivemenu(false);
+    else if (window.pageYOffset > 120 && !activeMenu) return setActivemenu(true);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => setScroll(), false);
+
+    return () => {
+      window.removeEventListener("scroll", () => setScroll(), false);
+    };
+  }, [activeMenu]);
 
   return (
     <>
-      <Header activemenu={pageScrollY < 120 ? false : true}>
+      <Header activemenu={activeMenu}>
         <Container>
-          <Box activemenu={pageScrollY < 120 ? false : true} mobileMenuSwitch={mobileMenuSwitch}>
-            <Logo activemenu={pageScrollY < 120 ? false : true} to="/">
+          <Box activemenu={activeMenu} mobileMenuSwitch={mobileMenuSwitch}>
+            <Logo activemenu={activeMenu} to="/">
               <Brand />
               UPY
             </Logo>
