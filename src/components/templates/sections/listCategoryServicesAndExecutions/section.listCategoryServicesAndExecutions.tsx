@@ -15,8 +15,8 @@ const SectionListCategoryServicesAndExecutionsComponent = ({ categories, active,
     <Section id="portfolio">
       <Container>
         <Row>
-          <Col xs={12} md={4} lg={3}>
-            <SelectBox className={activeMobileSticky ? "sticky" : null}>
+          <Col xs={12} md={4} lg={3} className="menu">
+            <SelectBox>
               <Header>{type === "execution" ? "Realizacje" : "Usługi"}</Header>
               <List>
                 <Item active={filtrPortfolio === "all" ? true : false} key={"all"}>
@@ -32,6 +32,7 @@ const SectionListCategoryServicesAndExecutionsComponent = ({ categories, active,
               </List>
             </SelectBox>
           </Col>
+
           <Col xs={12} md={8} lg={9} style={{ zIndex: 1 }}>
             <Row>
               {tiles.map((execution: any) => {

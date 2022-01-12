@@ -4,6 +4,7 @@ export const Section = styled.section`
   width: 100%;
   overflow: unset;
   overflow: hidden;
+  padding-top: 2rem;
   position: relative;
   padding-bottom: 20rem;
   min-height: calc(100vh - 24rem);
@@ -35,19 +36,26 @@ export const Section = styled.section`
 export const SelectBox = styled.div`
   left: 0;
   bottom: 0;
+  top: 0rem;
   width: 100%;
   z-index: 10;
   display: flex;
-  position: fixed;
+  position: sticky;
   align-items: center;
-  border-radius: 0.3rem;
-  padding: ${({ theme }) => theme.break.big};
-  background: ${({ theme }) => theme.colorGray};
 
   @media all and (min-width: 768px) {
-    border-top: none;
-    position: relative;
-    display: inline-block;
+    flex-wrap: wrap;
+  }
+`;
+
+export const Header = styled.h1`
+  font-size: 2rem;
+  font-weight: bold;
+  white-space: nowrap;
+
+  @media all and (min-width: 768px) {
+    font-size: 3rem;
+    margin-bottom: 1rem;
   }
 `;
 
@@ -67,49 +75,39 @@ export const List = styled.ul`
 `;
 
 type ItemType = {
-  active: boolean;
+  active?: boolean;
 };
 
 export const Item = styled.li<ItemType>`
   position: relative;
 
+  padding-right: ${({ theme }) => theme.break.main};
+
+  @media all and (min-width: 768px) {
+  }
+
   a {
     display: block;
     font-size: 1.4rem;
     white-space: nowrap;
-    padding: ${({ theme }) => theme.break.main} ${({ theme }) => theme.break.big};
+    border-radius: 0.3rem;
+    padding: ${({ theme }) => theme.break.main};
+
+    ${({ active, theme }) =>
+      active
+        ? css`
+            cursor: no-drop;
+            color: ${theme.colorWhite};
+            background: ${theme.colorBlack};
+          `
+        : null}
+
+    span {
+      opacity: 0.4;
+    }
 
     @media all and (min-width: 768px) {
-      margin: ${({ theme }) => theme.break.main} 0;
-      padding: ${({ theme }) => theme.break.main} ${({ theme }) => theme.break.big};
+      padding: ${({ theme }) => theme.break.main} 0;
     }
-
-    &:hover {
-      background: ${({ theme }) => theme.colorBlack};
-    }
-  }
-
-  ${({ active, theme }) =>
-    active &&
-    css`
-      a {
-        color: ${theme.colorWhite};
-        background: ${theme.colorBlack};
-
-        &:hover {
-          color: ${theme.colorAqua};
-        }
-      }
-    `}
-`;
-
-export const Header = styled.h1`
-  font-size: 2rem;
-  font-weight: bold;
-  white-space: nowrap;
-
-  @media all and (min-width: 768px) {
-    font-size: 3rem;
-    margin-bottom: 1rem;
   }
 `;
