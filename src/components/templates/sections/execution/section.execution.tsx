@@ -1,49 +1,15 @@
 import ReactMarkdown from "react-markdown";
 import { graphql, useStaticQuery } from "gatsby";
-import Brand from "assets/media/icon/logotyp.svg";
+import Brand from "assets/media/icon/logo.svg";
 import React, { useContext, useState, useRef, useEffect } from "react";
 import { MovingElement } from "components/atoms/animation/index.comonent.animation";
 import { Container, Row, Col } from "components/orgamis/flexboxgrid/index.flexboxgrid";
-import {
-  Section,
-  BoxSticky,
-  Header,
-  List,
-  Item,
-  ScrolTo,
-  Description,
-  ClientBox,
-  ClientBoxHeader,
-  ClientBoxHeaderName,
-  ListTechnology,
-  TechnologyItem,
-  MovingElementBox,
-  SharpCircle,
-  AnimationLogo,
-  SharpTriangle,
-} from "./section.execution.styled";
+import { Section, BoxSticky, Header, List, Item, ScrolTo, Description, ClientBox, ClientBoxHeader, ClientBoxHeaderName, ListTechnology, TechnologyItem } from "./section.execution.styled";
 
 const SectionExecutionComponent = ({ data }: any) => {
   const elRef: { current: any[] } = useRef([]);
   const [activeSection, setActiveSection] = useState(0);
   const { id, title, start, purposeandprocess, technologies } = data;
-
-  const { cube, noise } = useStaticQuery(
-    graphql`
-      query {
-        cube: file(name: { eq: "cube" }) {
-          id
-          name
-          publicURL
-        }
-        noise: file(name: { eq: "noise" }) {
-          id
-          name
-          publicURL
-        }
-      }
-    `
-  );
 
   useEffect(() => {
     let lastScroll: any = null;
@@ -65,26 +31,10 @@ const SectionExecutionComponent = ({ data }: any) => {
       },
       false
     );
-
-    return () => {
-      document.removeEventListener("scroll", () => {
-        allActiveBox = [];
-        if (!!elRef.current.length) {
-          clearTimeout(lastScroll);
-          lastScroll = setTimeout(() => {
-            elRef.current.forEach((_: any, i: number) => {
-              if (elRef.current[i].getBoundingClientRect().top + 100 < 0) return null;
-              allActiveBox.push(i);
-            });
-            setActiveSection(elRef.current.length - allActiveBox.length);
-          }, 10);
-        }
-      });
-    };
   }, [elRef]);
 
   return (
-    <Section style={{ backgroundImage: `url(${cube.publicURL})` }}>
+    <Section>
       <Container>
         <Row>
           <Col xs={12} lg={3} className="menu" style={{ bottom: `${activeSection === 2 ? "-10rem" : "0"}` }}>
@@ -155,25 +105,6 @@ const SectionExecutionComponent = ({ data }: any) => {
           </Col>
         </Row>
       </Container>
-      <MovingElementBox>
-        <MovingElement>
-          <SharpCircle bg={noise.publicURL} className="movieEL">
-            <div className="isolate">
-              <div className="ball-shadow"></div>
-              <div className="ball-light"></div>
-            </div>
-          </SharpCircle>
-          <AnimationLogo className="movieEL">
-            <Brand />
-          </AnimationLogo>
-          <SharpTriangle bg={noise.publicURL} className="movieEL">
-            <div className="isolate">
-              <div className="ball-shadow"></div>
-              <div className="ball-light"></div>
-            </div>
-          </SharpTriangle>
-        </MovingElement>
-      </MovingElementBox>
     </Section>
   );
 };

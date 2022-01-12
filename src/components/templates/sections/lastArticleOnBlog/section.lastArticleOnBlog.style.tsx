@@ -8,6 +8,11 @@ export const Section = styled.section`
 
 export const Title = styled.h2`
   font-size: 2.4rem;
+  font-weight: bold;
+
+  @media all and (min-width: 768px) {
+    font-size: 3.6rem;
+  }
 `;
 
 export const BoxListArticle = styled.div`
@@ -20,7 +25,7 @@ export const Article = styled.div`
   padding: 4rem;
   display: flex;
   flex-wrap: wrap;
-  background: ${({ theme }) => theme.colorBlue};
+  background: ${({ theme }) => theme.colorGray};
 
   .link {
     margin-left: auto;
@@ -28,9 +33,9 @@ export const Article = styled.div`
 `;
 export const TitleArticle = styled.h2`
   flex: 100%;
-  font-size: 2rem;
+  font-size: 2.4rem;
+  font-weight: bold;
   padding-bottom: 1rem;
-  color: ${({ theme }) => theme.colorWhite};
 `;
 
 export const ListTags = styled.ul`
@@ -45,7 +50,7 @@ export const Tag = styled.li`
   color: ${({ theme }) => theme.colorWhite};
 
   span {
-    color: ${({ theme }) => theme.colorPurple};
+    opacity: 0.4;
   }
 `;
 
@@ -80,13 +85,13 @@ export const AuthorBoxData = styled.div`
 export const AuthorBoxName = styled.p`
   width: 100%;
   display: block;
-  font-size: 1.4rem;
+  font-weight: bold;
 `;
 
 export const AuthorBoxDataAdded = styled.p`
   width: 100%;
   display: block;
-  font-size: 1.4rem;
+  font-size: 1rem;
   text-transform: uppercase;
 `;
 
@@ -97,8 +102,9 @@ export const AuthorBoxRangeArticle = styled.ul`
 
 export const AuthorBoxRangeArticleStar = styled.li`
   padding-right: 0.5rem;
+
   svg {
     width: 1.5rem;
-    fill: ${({ theme }) => theme.colorAqua};
+    fill: ${({ theme }) => theme.colorWhite};
   }
 `;

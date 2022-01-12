@@ -55,20 +55,22 @@ export const Option = styled.li<OptionType>`
   }
 
   &::before {
-    top: 0.4rem;
+    top: 0.6rem;
     content: "";
     width: 2rem;
     height: 2rem;
+    opacity: 0.4;
     position: relative;
     margin-right: 1rem;
     display: inline-block;
+    background-color: ${({ theme }) => theme.colorWhite};
     mask-image: url(${({ checkedIcon }) => checkedIcon});
-    background-color: ${({ theme }) => theme.colorPurple};
   }
 `;
 
 export const TitleForm = styled.h2`
   font-size: 2rem;
+  font-weight: bold;
 `;
 
 export const Form = styled.form`

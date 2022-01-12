@@ -5,8 +5,7 @@ export const Footer = styled.header`
   width: 100%;
   display: block;
   position: relative;
-  background: ${({ theme }) => theme.colorBlue};
-  border-top: 0.3rem solid ${({ theme }) => theme.colorBorder};
+  background: ${({ theme }) => theme.colorGray};
 `;
 
 type PowerMenuType = {
@@ -42,6 +41,12 @@ export const Item = styled.li`
     font-size: 1.2rem;
     align-items: center;
     color: ${({ theme }) => theme.colorWhite};
+
+    &:hover {
+      a {
+        color: ${({ theme }) => theme.colorAqua};
+      }
+    }
 
     svg {
       height: 2rem;

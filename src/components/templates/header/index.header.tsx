@@ -1,21 +1,25 @@
 import { Link } from "gatsby";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Brand from "assets/media/icon/logo.svg";
+import useWindowData from "hooks/hooks.windowData";
 import { ButtonInLink } from "components/atoms/button/component.button";
 import { Container } from "components/orgamis/flexboxgrid/index.flexboxgrid";
 import { Header, Logo, List, Item, Box, MobileMenuButton, BreakBoxHeader } from "./index.header.style";
 
 const HeaderComponent = () => {
-  const [powerMenu, setPowerMenu] = useState(false);
+  const { pageScrollY } = useWindowData();
+  const [mobileMenuSwitch, setMobileMenuSwitch] = useState(false);
+
   return (
     <>
-      <Header>
+      <Header activemenu={pageScrollY < 120 ? false : true}>
         <Container>
-          <Box powerMenu={powerMenu}>
-            <Logo to="/">
+          <Box activemenu={pageScrollY < 120 ? false : true} mobileMenuSwitch={mobileMenuSwitch}>
+            <Logo activemenu={pageScrollY < 120 ? false : true} to="/">
               <Brand />
+              UPY
             </Logo>
-            <MobileMenuButton powerMenu={powerMenu} onClick={() => setPowerMenu(!powerMenu)}>
+            <MobileMenuButton mobileMenuSwitch={mobileMenuSwitch} onClick={() => setMobileMenuSwitch(!mobileMenuSwitch)}>
               <span></span>
               <span></span>
               <span></span>

@@ -23,10 +23,10 @@ const settings: MainSettingsTemplate = {
   colorRiverBed: "#44495B",
   colorBlueDark: "#040815",
   colorBlue: "#0A122A",
-  colorGray: "#7E7E7E",
+  colorGray: "#1A1A1A",
   colorDanger: "#E18787",
-  colorPurple: "#D795FF",
-  colorBorder: "#192037",
+  colorPurple: "#AF2BFF",
+  colorBorder: "#8D8D8D",
 
   // settings break
   break: { small: "0.5rem", main: "1rem", big: "2rem" },
@@ -44,7 +44,7 @@ const settings: MainSettingsTemplate = {
   gridCol: 12,
 
   // settings max width
-  max_width: "114rem",
+  max_width: "144rem",
 };
 
 export default settings;

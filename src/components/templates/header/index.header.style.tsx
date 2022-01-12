@@ -1,59 +1,79 @@
 import styled from "styled-components";
 import { Link } from "gatsby";
 
-export const Header = styled.header`
+type HeaderType = {
+  activemenu: boolean;
+};
+
+export const Header = styled.header<HeaderType>`
   padding: 0;
   width: 100%;
   z-index: 99999;
   display: block;
   position: fixed;
-  background: ${({ theme }) => theme.colorBlue};
-  border-bottom: 0.3rem solid ${({ theme }) => theme.colorBorder};
+  background: ${({ theme, activemenu }) => (activemenu ? theme.colorGray : theme.colorBlack)};
 `;
 
-type PowerMenuType = {
-  powerMenu: boolean;
+type BoxType = {
+  activemenu: boolean;
+  mobileMenuSwitch: boolean;
 };
 
-export const Box = styled.div<PowerMenuType>`
+export const Box = styled.div<BoxType>`
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
   align-items: center;
   transition: all 0.3s;
-  padding: ${({ theme }) => theme.break.main} 0;
-  height: ${({ powerMenu }) => (powerMenu ? "35rem" : "6rem")};
+  padding: ${({ theme, activemenu }) => (activemenu ? `${theme.break.main} 0` : `4rem 0`)};
+  height: ${({ mobileMenuSwitch, activemenu }) => (mobileMenuSwitch ? "35rem" : activemenu ? "6rem" : "12rem")};
 
   a {
     text-align: center;
+
+    @media all and (min-width: 1140px) {
+      font-size: ${({ activemenu }) => (activemenu ? `1.6rem` : `2.4rem`)};
+    }
   }
 
   .onlineValuationLink {
     width: 100%;
     margin-left: auto;
     padding: ${({ theme }) => theme.break.big};
-    @media all and (min-width: 767px) {
+
+    @media all and (min-width: 1140px) {
       width: auto;
       padding: 0 ${({ theme }) => theme.break.main};
     }
   }
 `;
 
-export const Logo = styled(Link)`
+type LogoType = {
+  activemenu: boolean;
+};
+
+export const Logo = styled(Link)<LogoType>`
   border: none;
   display: flex;
+  font-weight: bold;
   width: max-content;
   position: relative;
   align-items: center;
   background: transparent;
+  color: ${({ theme }) => theme.colorWhite};
   padding: 0 ${({ theme }) => theme.break.main};
+  font-size: ${({ activemenu }) => (activemenu ? `2.4rem !important` : `5rem !important`)};
 
   svg {
-    height: 4rem;
     fill: ${({ theme }) => theme.colorWhite};
+    margin-right: ${({ theme }) => theme.break.main};
+    width: ${({ activemenu }) => (activemenu ? `4rem` : `6rem`)};
+    height: ${({ activemenu }) => (activemenu ? `4rem` : `6rem`)};
   }
 
   &:hover {
+    color: ${({ theme }) => theme.colorAqua};
+
     svg {
       fill: ${({ theme }) => theme.colorPurple};
     }
@@ -66,7 +86,7 @@ export const List = styled.ul`
   flex-wrap: wrap;
   padding: 0 ${({ theme }) => theme.break.big};
 
-  @media all and (min-width: 767px) {
+  @media all and (min-width: 1140px) {
     flex: none;
   }
 `;
@@ -79,7 +99,7 @@ export const Item = styled.li`
   justify-content: center;
   padding: ${({ theme }) => theme.break.big};
 
-  @media all and (min-width: 767px) {
+  @media all and (min-width: 1140px) {
     flex: none;
     width: max-content;
     padding: 0 ${({ theme }) => theme.break.big};
@@ -106,7 +126,7 @@ export const Item = styled.li`
 `;
 
 type MobileMenuButtonType = {
-  powerMenu: boolean;
+  mobileMenuSwitch: boolean;
 };
 
 export const MobileMenuButton = styled.div<MobileMenuButtonType>`
@@ -127,27 +147,27 @@ export const MobileMenuButton = styled.div<MobileMenuButtonType>`
     background: ${({ theme }) => theme.colorAqua};
 
     &:nth-child(1) {
-      top: ${({ powerMenu }) => (powerMenu ? "2rem" : `1rem`)};
-      transform: ${({ powerMenu }) => (powerMenu ? "rotate(45deg)" : `rotate(0)`)};
+      top: ${({ mobileMenuSwitch }) => (mobileMenuSwitch ? "2rem" : `1rem`)};
+      transform: ${({ mobileMenuSwitch }) => (mobileMenuSwitch ? "rotate(45deg)" : `rotate(0)`)};
     }
     &:nth-child(2) {
       top: 2rem;
-      left: ${({ powerMenu }) => (powerMenu ? "-4rem" : 0)};
+      left: ${({ mobileMenuSwitch }) => (mobileMenuSwitch ? "-4rem" : 0)};
     }
     &:nth-child(3) {
-      top: ${({ powerMenu }) => (powerMenu ? "2rem" : `3rem`)};
-      transform: ${({ powerMenu }) => (powerMenu ? "rotate(-45deg)" : `rotate(0)`)};
+      top: ${({ mobileMenuSwitch }) => (mobileMenuSwitch ? "2rem" : `3rem`)};
+      transform: ${({ mobileMenuSwitch }) => (mobileMenuSwitch ? "rotate(-45deg)" : `rotate(0)`)};
     }
   }
 
-  @media all and (min-width: 767px) {
+  @media all and (min-width: 1140px) {
     display: none;
   }
 `;
 
 export const BreakBoxHeader = styled.div`
   width: 100%;
-  height: 6rem;
+  height: 12rem;
   display: block;
   position: relative;
 `;

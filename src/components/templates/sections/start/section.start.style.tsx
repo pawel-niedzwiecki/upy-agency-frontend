@@ -10,7 +10,7 @@ export const Section = styled.section`
   flex-direction: column;
   justify-content: center;
   background-size: 90% auto;
-  height: calc(100vh - 6rem);
+  height: calc(100vh - 12rem);
   background-position: center;
   background-repeat: no-repeat;
 
@@ -32,7 +32,8 @@ export const Section = styled.section`
 
 export const BoxContent = styled.div`
   z-index: 20;
-  width: 25rem;
+  width: 26rem;
+  height: 15rem;
   display: flex;
   margin: 0 auto;
   flex-wrap: wrap;
@@ -40,7 +41,7 @@ export const BoxContent = styled.div`
   justify-content: center;
 
   @media all and (min-width: 768px) {
-    width: 36rem;
+    width: 40rem;
   }
 `;
 
@@ -86,110 +87,5 @@ export const Form = styled.form`
     width: 100%;
     display: block;
     margin: ${({ theme }) => theme.break.main} 0;
-  }
-`;
-
-export const MovingElementBox = styled.div`
-  display: none;
-
-  @media all and (min-width: 768px) {
-    right: 0;
-    bottom: 5vh;
-    z-index: 0;
-    width: 30rem;
-    height: 30rem;
-    display: block;
-    position: absolute;
-  }
-`;
-
-interface SharpCircleProps {
-  bg: any;
-}
-
-export const AnimationLogo = styled.div`
-  top: 0%;
-  left: 25%;
-  z-index: 20;
-  width: 6rem;
-  height: 6rem;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const SharpCircle = styled.div<SharpCircleProps>`
-  bottom: 20%;
-  left: 0%;
-  z-index: 0;
-  display: flex;
-  width: 5rem;
-  height: 5rem;
-  overflow: hidden;
-  position: absolute;
-  align-items: center;
-  border-radius: 100%;
-  justify-content: center;
-
-  .ball-shadow {
-    height: 100%;
-    filter: contrast(200%) brightness(500%);
-    background: radial-gradient(circle at 30% 30%, rgba(0, 0, 0, 0), rgba(70, 50, 100, 1)), url(${({ bg }) => bg});
-  }
-
-  .ball-light {
-    top: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    mix-blend-mode: multiply;
-    background: radial-gradient(circle at 67% 30%, #efd5ff, #e0aeff);
-  }
-
-  .isolate {
-    top: 0;
-    width: 100%;
-    height: 100%;
-    isolation: isolate;
-    position: absolute;
-  }
-`;
-
-export const SharpTriangle = styled.div<SharpCircleProps>`
-  bottom: 10%;
-  right: 10%;
-  z-index: 20;
-  display: flex;
-  width: 5rem;
-  height: 5rem;
-  overflow: hidden;
-  position: absolute;
-  align-items: center;
-  justify-content: center;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-
-  .ball-shadow {
-    height: 100%;
-    filter: contrast(200%) brightness(500%);
-    background: radial-gradient(circle at 30% 30%, rgba(0, 0, 0, 0), #32645c), url(${({ bg }) => bg});
-  }
-
-  .ball-light {
-    top: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    mix-blend-mode: multiply;
-    background: radial-gradient(circle at 67% 30%, #d5ffff, #aeffe7);
-  }
-
-  .isolate {
-    top: 0;
-    width: 100%;
-    height: 100%;
-    isolation: isolate;
-    position: absolute;
   }
 `;

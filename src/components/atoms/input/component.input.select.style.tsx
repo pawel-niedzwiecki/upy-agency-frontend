@@ -42,7 +42,8 @@ export const Select = styled.select`
   margin: 0;
   padding: 0 1em;
   color: #fff;
-  background-color: ${({ theme }) => theme.colorBlue};
+  background-color: ${({ theme }) => theme.colorGray};
+  border: 1px solid ${({ theme }) => theme.colorBorder};
   background-image: none;
   cursor: pointer;
   font-size: 1.6rem;

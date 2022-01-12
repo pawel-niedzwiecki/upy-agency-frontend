@@ -31,9 +31,8 @@ const GlobalStyle = styled.createGlobalStyle<GlobalStyleProps>`
     font-style: normal;
     font-weight: normal;
     color: ${({ theme }) => theme.colorWhite};
-    background-color: ${({ theme }) => theme.colorBlueDark};
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-      "Noto Color Emoji";
+    background-color: ${({ theme }) => theme.colorBlack};
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   p,
@@ -46,7 +45,7 @@ const GlobalStyle = styled.createGlobalStyle<GlobalStyleProps>`
     margin: 0;
     padding: 0;
     font-weight: 300;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Montserrat", sans-serif;
   }
 
   p,
@@ -54,7 +53,7 @@ const GlobalStyle = styled.createGlobalStyle<GlobalStyleProps>`
   a,
   span,
   strong {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Montserrat", sans-serif;
   }
 
   b,

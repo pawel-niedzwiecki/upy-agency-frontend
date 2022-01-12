@@ -6,7 +6,7 @@ export const Section = styled.section`
   display: flex;
   position: relative;
   align-items: center;
-  background: ${({ theme }) => theme.colorBlue};
+  background: ${({ theme }) => theme.colorGray};
 
   @media all and (min-width: 768px) {
     height: 15rem;
@@ -19,6 +19,7 @@ export const Section = styled.section`
 `;
 
 export const Title = styled.h2`
+  font-weight: bold;
   font-size: 1.6rem;
   white-space: nowrap;
 
@@ -27,6 +28,6 @@ export const Title = styled.h2`
   }
 
   @media all and (min-width: 1024px) {
-    font-size: 2.4rem;
+    font-size: 3.6rem;
   }
 `;

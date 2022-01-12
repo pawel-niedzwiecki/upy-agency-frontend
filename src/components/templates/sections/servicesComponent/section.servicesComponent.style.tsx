@@ -12,7 +12,7 @@ export const BoxServices = styled.div`
   min-height: 28rem;
   padding: 2rem 4rem;
   position: relative;
-  background: linear-gradient(90deg, rgb(25, 32, 55) 20%, rgb(10, 18, 42) 100%);
+  background: ${({ theme }) => theme.colorGray};
 `;
 
 export const ImgBox = styled.div`
@@ -42,6 +42,10 @@ export const Title = styled.h2`
   font-size: 2.4rem;
   font-weight: bold;
   padding-bottom: 2rem;
+
+  @media all and (min-width: 768px) {
+    font-size: 3.6rem;
+  }
 `;
 
 export const Excerpt = styled.p`
@@ -52,9 +56,11 @@ export const Excerpt = styled.p`
 
 export const ListOptions = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 
   a {
+    margin-top: 2rem;
     margin-right: 2rem;
     white-space: nowrap;
   }

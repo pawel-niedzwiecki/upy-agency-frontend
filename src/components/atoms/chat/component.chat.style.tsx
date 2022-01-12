@@ -21,7 +21,7 @@ export const ChatFaceBox = styled.div<PowerChatType>`
   animation-duration: 1200ms;
   animation-fill-mode: forwards;
   animation-name: ChatFaceBoxAnimation;
-  background: ${({ theme }) => theme.colorBlue};
+  background: ${({ theme }) => theme.colorGray};
   border: 0.2rem solid ${({ theme }) => theme.colorBorder};
   display: ${({ powerChat }) => (powerChat ? "flex" : "none")};
   padding: ${({ infoChat }) => (infoChat ? "0 0" : "0 0!important")};
@@ -33,14 +33,14 @@ export const ChatFaceBox = styled.div<PowerChatType>`
       width: 4.5rem;
     }
     to {
-      width: 30rem;
+      width: 29rem;
       padding: 0 2.5rem;
     }
   }
 
   @media all and (min-width: 768px) {
     right: 2rem;
-    bottom: 16rem;
+    bottom: 2rem;
   }
 
   .face {
@@ -78,6 +78,7 @@ export const ChatFaceBoxText = styled.p<ChatFaceBoxTextType>`
   width: 0%;
   height: 4.5rem;
   overflow: hidden;
+  font-size: 1.4rem;
   line-height: 4.5rem;
   animation-delay: 800ms;
   animation-duration: 1500ms;

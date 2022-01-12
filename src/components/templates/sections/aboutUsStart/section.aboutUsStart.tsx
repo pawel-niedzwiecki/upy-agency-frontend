@@ -8,10 +8,10 @@ import { Row, Col, Container } from "components/orgamis/flexboxgrid/index.flexbo
 import { Section, Title, BoxContent, Description } from "./section.aboutUsStart.style";
 
 const SectionAboutUsStartComponent = ({ data: { title, description } }: { data: { title: string; description: string } }) => {
-  const { logotyp } = useStaticQuery(
+  const { logo } = useStaticQuery(
     graphql`
       query {
-        logotyp: file(name: { eq: "logotyp" }) {
+        logo: file(name: { eq: "logo" }) {
           id
           name
           publicURL
@@ -28,7 +28,7 @@ const SectionAboutUsStartComponent = ({ data: { title, description } }: { data: 
             <Title>{title}</Title>
           </Col>
           <Col xs={12}>
-            <BoxContent additionalBg={logotyp.publicURL}>
+            <BoxContent additionalBg={logo.publicURL}>
               <Row>
                 <Col xs={12} md={6}>
                   <Description>{description}</Description>

@@ -4,7 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery, Link } from "gatsby";
 import { ButtonInLink } from "components/atoms/button/component.button";
 import { Row, Col, Container } from "components/orgamis/flexboxgrid/index.flexboxgrid";
-import { Section, BoxServices, ImgBox, Title, Excerpt, ListOptions } from "./section.featuredServices.style";
+import { Section, BoxServices, ImgBox, Title, Excerpt, ListOptions } from "./section.servicesComponent.style";
 
 const SectionfeaturedServicesComponent = () => {
   const { home } = useStaticQuery(

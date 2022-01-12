@@ -23,24 +23,30 @@ export const BoxContent = styled.div<BoxContentType>`
   min-height: 30rem;
   position: relative;
   align-items: center;
-  background: linear-gradient(90deg, rgb(25, 32, 55) 20%, rgb(10, 18, 42) 100%);
+  background: ${({ theme }) => theme.colorGray};
 
   @media all and (min-width: 768px) {
     padding: 2rem 4rem;
   }
 
   &::after {
-    top: -10rem;
+    content: "";
+    top: -12rem;
     width: 20rem;
+    height: 20rem;
     right: -10rem;
     display: block;
     position: absolute;
-    content: url(${({ additionalBg }) => additionalBg});
+    background-position: center;
+    background-size: 20rem 20rem;
+    background-image: url(${({ additionalBg }) => additionalBg});
 
     @media all and (min-width: 768px) {
-      top: -20rem;
       width: 50rem;
+      height: 50rem;
+      top: -25rem;
       right: -20rem;
+      background-size: 50rem 50rem;
     }
   }
 `;

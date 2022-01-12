@@ -14,7 +14,7 @@ export const Section = styled.section`
       display: flex;
       position: fixed;
       transition: all 0.3s;
-      background: ${({ theme }) => theme.colorBlue};
+      background: ${({ theme }) => theme.colorGray};
 
       div {
         display: flex;
@@ -39,7 +39,7 @@ export const Section = styled.section`
           }
 
           .active {
-            background: ${({ theme }) => theme.colorBlueDark};
+            background: ${({ theme }) => theme.colorBlack};
           }
         }
       }
@@ -48,7 +48,8 @@ export const Section = styled.section`
 `;
 
 export const Title = styled.h1`
-  font-size: 2.4rem;
+  font-size: 3.6rem;
+  font-weight: bold;
   padding-bottom: 2rem;
 `;
 
@@ -72,7 +73,8 @@ export const BoxSticky = styled.div<BoxStickyType>`
 `;
 
 export const Header = styled.h2`
-  font-size: 3rem;
+  font-weight: bold;
+  font-size: 3.6rem;
   padding-bottom: ${({ theme }) => theme.break.big};
 `;
 

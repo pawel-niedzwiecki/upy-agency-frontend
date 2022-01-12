@@ -7,7 +7,7 @@ import { emailRegex, telRegex, nameRegex } from "assets/regex/index.regex";
 import { Input, CheckBox, TextArea } from "components/molecules/form/index.form";
 import { ButtonOutLink, ButtonSubmit } from "components/atoms/button/component.button";
 import { Container, Row, Col } from "components/orgamis/flexboxgrid/index.flexboxgrid";
-import { Section, SelectBox, List, Header, BoxContact, Title, Form, BoxAnimation, SharpCircle, SharpSquare, SharpTriangle } from "./section.contact.styled";
+import { Section, SelectBox, List, Header, BoxContact, Title, Form } from "./section.contact.styled";
 
 import GitHub from "assets/media/icon/github.svg";
 import Linkedin from "assets/media/icon/linkedin.svg";
@@ -16,18 +16,6 @@ import Square from "assets/media/icon/square.svg";
 
 const ContactSectionComponent = () => {
   const [send, setSend] = useState(false);
-
-  const { noise } = useStaticQuery(
-    graphql`
-      query {
-        noise: file(name: { eq: "noise" }) {
-          id
-          name
-          publicURL
-        }
-      }
-    `
-  );
 
   const {
     reset,
@@ -85,7 +73,7 @@ const ContactSectionComponent = () => {
     <Section id="contact">
       <Container>
         <Row>
-          <Col xs={12} md={4} lg={3}>
+          <Col xs={12} md={6} lg={4}>
             <SelectBox>
               <Header style={{ paddingBottom: "2rem" }}>UPY</Header>
               <List>
@@ -130,7 +118,7 @@ const ContactSectionComponent = () => {
             </SelectBox>
           </Col>
 
-          <Col xs={12} md={8} lg={5} style={{ zIndex: 1 }}>
+          <Col xs={12} md={6} lg={8} style={{ zIndex: 1 }}>
             <BoxContact>
               <Title>Kontakt</Title>
               {send ? (
@@ -175,31 +163,6 @@ const ContactSectionComponent = () => {
             </BoxContact>
           </Col>
         </Row>
-        <BoxAnimation>
-          <MovingElement>
-            <SharpCircle bg={noise.publicURL} className="movieEL">
-              <div className="isolate">
-                <div className="ball-shadow"></div>
-                <div className="ball-light"></div>
-              </div>
-            </SharpCircle>
-            <SharpSquare bg={noise.publicURL} className="movieEL">
-              <div className="isolate">
-                <div className="ball-shadow"></div>
-                <div className="ball-light"></div>
-              </div>
-            </SharpSquare>
-            <SharpTriangle bg={noise.publicURL} className="movieEL">
-              <div className="isolate">
-                <div className="ball-shadow"></div>
-                <div className="ball-light"></div>
-              </div>
-            </SharpTriangle>
-
-            <Square style={{ width: "30rem" }} />
-            <Square style={{ width: "30rem", marginLeft: "4.2rem", top: "-2px", position: "relative" }} />
-          </MovingElement>
-        </BoxAnimation>
       </Container>
     </Section>
   );

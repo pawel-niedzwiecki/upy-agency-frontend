@@ -17,7 +17,7 @@ const LayoutComponent = ({ children }: LayoutComponentProps) => {
         <meta charSet="utf-8" />
         <title>My Title</title>
         <link rel="canonical" href="http://mysite.com/example" />
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
       </Helmet>
       <ThemeProvider theme={settings}>
         <GlobalStyle />

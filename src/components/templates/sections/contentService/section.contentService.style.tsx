@@ -81,10 +81,11 @@ export const Option = styled.li<OptionType>`
     content: "";
     width: 2rem;
     height: 2rem;
+    opacity: 0.4;
     position: absolute;
     display: inline-block;
     mask-image: url(${({ checkedIcon }) => checkedIcon});
-    background-color: ${({ theme }) => theme.colorPurple};
+    background-color: ${({ theme }) => theme.colorWhite};
   }
 `;
 
@@ -94,7 +95,7 @@ export const BoxImg = styled.div`
   height: 30rem;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(90deg, rgb(25, 32, 55) 20%, rgb(10, 18, 42) 100%);
+  background: ${({ theme }) => theme.colorGray};
 
   @media all and (min-width: 768px) {
     height: 40rem;

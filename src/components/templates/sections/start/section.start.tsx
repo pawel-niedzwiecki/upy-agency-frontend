@@ -1,25 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
 import Typewriter from "typewriter-effect";
-import Brand from "assets/media/icon/logotyp.svg";
+import Brand from "assets/media/icon/logo.svg";
 import { graphql, useStaticQuery } from "gatsby";
 import ArrowBig from "assets/media/icon/arrowBig.svg";
 import Chat from "components/atoms/chat/component.chat";
 import { InputSelect } from "components/molecules/form/index.form";
 import { ButtonSubmit } from "components/atoms/button/component.button";
-import { MovingElement } from "components/atoms/animation/index.comonent.animation";
-import { Section, BoxContent, Form, MovingElementBox, SharpCircle, AnimationLogo, SharpTriangle } from "./section.start.style";
+import { Section, BoxContent, Form } from "./section.start.style";
 
 const StartSectionComponent = () => {
   const [startAnimation, useStartAnimation] = useState(false);
 
-  const { wheel, noise, filip } = useStaticQuery(
+  const { noise } = useStaticQuery(
     graphql`
       query {
-        wheel: file(name: { eq: "wheel" }) {
-          id
-          name
-          publicURL
-        }
         noise: file(name: { eq: "noise" }) {
           id
           name
@@ -40,7 +34,7 @@ const StartSectionComponent = () => {
   }, []);
 
   return (
-    <Section style={{ backgroundImage: `url(${wheel.publicURL})` }}>
+    <Section>
       {startAnimation && (
         <>
           <BoxContent>
@@ -60,25 +54,6 @@ const StartSectionComponent = () => {
             </Form>
           </BoxContent>
           <Chat />
-          <MovingElementBox>
-            <MovingElement>
-              <SharpCircle bg={noise.publicURL} className="movieEL">
-                <div className="isolate">
-                  <div className="ball-shadow"></div>
-                  <div className="ball-light"></div>
-                </div>
-              </SharpCircle>
-              <AnimationLogo className="movieEL">
-                <Brand />
-              </AnimationLogo>
-              <SharpTriangle bg={noise.publicURL} className="movieEL">
-                <div className="isolate">
-                  <div className="ball-shadow"></div>
-                  <div className="ball-light"></div>
-                </div>
-              </SharpTriangle>
-            </MovingElement>
-          </MovingElementBox>
         </>
       )}
     </Section>

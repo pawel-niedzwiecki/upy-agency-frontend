@@ -6,10 +6,7 @@ export const Section = styled.section`
   overflow: hidden;
   position: relative;
   padding-bottom: 20rem;
-  background-size: 50vh auto;
-  background-repeat: no-repeat;
-  background-position: 5vw 60vh;
-  min-height: calc(100vh - 18rem);
+  min-height: calc(100vh - 24rem);
 
   .col {
     padding-bottom: 2rem;
@@ -25,7 +22,7 @@ export const Section = styled.section`
       justify-content: center;
       color: ${({ theme }) => theme.colorWhite};
       padding: ${({ theme }) => theme.break.main};
-      background: ${({ theme }) => theme.colorBlue};
+      background: ${({ theme }) => theme.colorGray};
 
       &:hover {
         color: ${({ theme }) => theme.colorBlack};
@@ -45,8 +42,7 @@ export const SelectBox = styled.div`
   align-items: center;
   border-radius: 0.3rem;
   padding: ${({ theme }) => theme.break.big};
-  background: ${({ theme }) => theme.colorBlue};
-  border-top: 0.3rem solid ${({ theme }) => theme.colorBorder};
+  background: ${({ theme }) => theme.colorGray};
 
   @media all and (min-width: 768px) {
     border-top: none;
@@ -89,7 +85,7 @@ export const Item = styled.li<ItemType>`
     }
 
     &:hover {
-      background: ${({ theme }) => theme.colorBlueDark};
+      background: ${({ theme }) => theme.colorBlack};
     }
   }
 
@@ -98,7 +94,7 @@ export const Item = styled.li<ItemType>`
     css`
       a {
         color: ${theme.colorWhite};
-        background: ${theme.colorBlueDark};
+        background: ${theme.colorBlack};
 
         &:hover {
           color: ${theme.colorAqua};

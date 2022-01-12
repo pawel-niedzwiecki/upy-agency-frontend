@@ -1,5 +1,5 @@
 import lodash from "lodash";
-import { graphql, useStaticQuery, Link } from "gatsby";
+import { Link } from "gatsby";
 import React, { useContext, useState, useEffect } from "react";
 import { Button, ButtonInLink } from "components/atoms/button/component.button";
 import { SquareConent } from "components/atoms/animation/index.comonent.animation";
@@ -11,30 +11,8 @@ const SectionListCategoryServicesAndExecutionsComponent = ({ categories, active,
   const [filtrPortfolio, setFiltrPortfolio] = useState(active);
   const [activeMobileSticky, setActiveMobileSticky] = useState(false);
 
-  const { circle, executions } = useStaticQuery(
-    graphql`
-      query {
-        circle: file(name: { eq: "circle" }) {
-          id
-          name
-          publicURL
-        }
-        executions: allStrapiExecutions(filter: { execution_category: { title: { eq: "Pozycjonowanie" } } }) {
-          nodes {
-            id
-            title
-            technologies {
-              id
-              title
-            }
-          }
-        }
-      }
-    `
-  );
-
   return (
-    <Section id="portfolio" style={{ backgroundImage: `url(${circle.publicURL})` }}>
+    <Section id="portfolio">
       <Container>
         <Row>
           <Col xs={12} md={4} lg={3}>
