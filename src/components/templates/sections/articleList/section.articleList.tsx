@@ -74,7 +74,7 @@ const SectionArticleListComponent = ({ articles, active }: any) => {
                   </Link>
                 </Item>
                 {tags.nodes.map((tag: any, i: number) => {
-                  if (i > 10) return null;
+                  if (i > 10 || !tag.blogs.length) return null;
                   return (
                     <Item key={tag.id} active={active === tag.title ? true : false}>
                       <Link to={`/b/t/${lodash.kebabCase(lodash.deburr(tag.title))}`}>

@@ -38,6 +38,12 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allStrapiBlogs {
+        nodes {
+          id
+          title
+        }
+      }
     }
   `);
 
@@ -77,6 +83,14 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `b/t/${lodash.kebabCase(lodash.deburr(content.title))}`,
       component: require.resolve(`./src/templates/article-category.tsx`),
+      context: { title: content.title, id: content.id, content, index },
+    });
+  });
+
+  queryResults.data.allStrapiBlogs.nodes.forEach((content, index) => {
+    createPage({
+      path: `b/a/${lodash.kebabCase(lodash.deburr(content.title))}`,
+      component: require.resolve(`./src/templates/article.tsx`),
       context: { title: content.title, id: content.id, content, index },
     });
   });
