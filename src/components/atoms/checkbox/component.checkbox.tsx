@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Label, CheckBoxClassicText, CheckBoxStyled, CheckBoxClassicRoad, CheckBoxClassicFace, CheckBoxServiceBox, CheckBoxServiceText, CheckBoxServiceChecked } from "./component.checkbox.style";
 
 export const CheckBox = ({ id, type, label, pattern, error, register, required }: any) => {
@@ -15,8 +15,12 @@ export const CheckBox = ({ id, type, label, pattern, error, register, required }
   );
 };
 
-export const CheckBoxService = ({ id, type, check, label, error, register, required }: any) => {
-  const [checkedInput, setCheckedInput] = useState(check ? true : false);
+export const CheckBoxService = ({ id, type, param, label, error, register, required }: any) => {
+  const [checkedInput, setCheckedInput] = useState(false);
+
+  useEffect(() => {
+    if (param === label) setCheckedInput(true);
+  }, [param]);
 
   return (
     <Label htmlFor={id} checkedInput={checkedInput} {...register(id, { required })}>
