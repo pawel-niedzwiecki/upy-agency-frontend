@@ -8,9 +8,9 @@ export const Label = styled.label<LabelProps>`
   display: flex;
   cursor: pointer;
   flex-wrap: wrap;
-  padding-top: 3rem;
   position: relative;
   align-items: center;
+  padding: ${({ theme }) => theme.break.main} 0;
 `;
 
 interface RoadProps {
@@ -18,7 +18,7 @@ interface RoadProps {
   checkedInput: boolean;
 }
 
-export const Road = styled.div<RoadProps>`
+export const CheckBoxClassicRoad = styled.div<RoadProps>`
   flex: 0 60px;
   width: 60px;
   height: 36px;
@@ -47,7 +47,7 @@ interface FaceProps {
   checkedInput: boolean;
 }
 
-export const Face = styled.i<FaceProps>`
+export const CheckBoxClassicFace = styled.i<FaceProps>`
   position: absolute;
   top: 4px;
   left: 4px;
@@ -106,7 +106,7 @@ export const Face = styled.i<FaceProps>`
   }
 `;
 
-export const Text = styled.p`
+export const CheckBoxClassicText = styled.p`
   display: block;
   font-size: 1.2rem;
   position: relative;
@@ -118,4 +118,73 @@ export const Text = styled.p`
 
 export const CheckBoxStyled = styled.input`
   display: none;
+`;
+
+type CheckBoxServiceBoxType = {
+  checkedInput: boolean;
+};
+
+export const CheckBoxServiceBox = styled.div<CheckBoxServiceBoxType>`
+  width: 100%;
+  display: flex;
+  min-height: 10rem;
+  align-items: center;
+  transition: all 0.3s;
+  border-radius: 0.3rem;
+  justify-content: flex-start;
+  border: 0.1rem solid transparent;
+  color: ${({ theme }) => theme.colorWhite};
+  padding: ${({ theme }) => theme.break.big};
+  background: ${({ theme }) => theme.colorGray};
+
+  @media all and (min-width: 768px) {
+    min-height: 20rem;
+  }
+
+  ${({ checkedInput }) =>
+    checkedInput &&
+    css`
+      background: ${({ theme }) => theme.colorGrayDark};
+      border: 0.1rem solid ${({ theme }) => theme.colorBorder};
+    `};
+
+  &:hover {
+    background: ${({ theme }) => theme.colorGrayDark};
+  }
+`;
+export const CheckBoxServiceText = styled.p`
+  @media all and (min-width: 768px) {
+    font-size: 2.4rem;
+  }
+`;
+
+type CheckBoxServiceCheckedType = {
+  error: boolean;
+  checkedInput: boolean;
+};
+
+export const CheckBoxServiceChecked = styled.div<CheckBoxServiceCheckedType>`
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  margin-left: auto;
+  position: relative;
+  align-items: center;
+  border-radius: 0.3rem;
+  justify-content: center;
+  background: ${({ theme }) => theme.colorWhite};
+
+  @media all and (min-width: 768px) {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &::after {
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.3rem;
+    background: ${({ theme }) => theme.colorGrayDark};
+    display: ${({ checkedInput }) => (checkedInput ? "block" : "none")};
+  }
 `;

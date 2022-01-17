@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import { SelectType } from "./component.input.select.type";
 import { SelectBox, Select, Option } from "./component.input.select.style";
 
-export const InputSelect = ({ options }: SelectType) => {
+export const InputSelect = ({ id, name, options }: SelectType) => {
   const { arrow } = useStaticQuery(
     graphql`
       query {
@@ -18,7 +18,7 @@ export const InputSelect = ({ options }: SelectType) => {
 
   return (
     <SelectBox mask={arrow.publicURL}>
-      <Select>
+      <Select id={id} name={name}>
         {options.map((option, i) => {
           return (
             <Option value={option} key={i}>

@@ -1,6 +1,6 @@
-import { Input } from "components/atoms/input/index.input";
+import { Input } from "components/atoms/input/component.input";
 import { TextArea } from "components/atoms/textarea/index.textarea";
-import { CheckBox } from "components/atoms/checkbox/component.checkbox";
-import { InputSelect } from "components/atoms/input/component.input.select";
+import { CheckBox, CheckBoxService } from "components/atoms/checkbox/component.checkbox";
+import { InputSelect } from "components/atoms/select/component.input.select";
 
-export { Input, TextArea, CheckBox, InputSelect };
+export { Input, TextArea, CheckBox, CheckBoxService, InputSelect };

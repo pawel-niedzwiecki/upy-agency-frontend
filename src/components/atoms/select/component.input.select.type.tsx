@@ -1,4 +1,6 @@
 export type SelectType = {
+  id: string;
+  name: string;
   options: string[];
 };
 

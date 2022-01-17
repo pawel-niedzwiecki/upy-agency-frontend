@@ -46,8 +46,8 @@ const StartSectionComponent = () => {
                 strings: "Hej! Co dziś robimy?",
               }}
             />
-            <Form>
-              <InputSelect options={["strone www", "pozycjonowanie", "aplikacja na telefon"]} />
+            <Form action="/lead/chooice-services" method="get">
+              <InputSelect id="chooice-services" name="chooiceService" options={["strone www", "pozycjonowanie", "aplikacja na telefon"]} />
               <ButtonSubmit>
                 DALEJ <ArrowBig />
               </ButtonSubmit>

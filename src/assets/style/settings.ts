@@ -6,6 +6,7 @@ interface MainSettingsTemplate {
   colorBlueDark: string;
   colorBlue: string;
   colorGray: string;
+  colorGrayDark: string;
   colorDanger: string;
   colorPurple: string;
   colorBorder: string;
@@ -24,6 +25,7 @@ const settings: MainSettingsTemplate = {
   colorBlueDark: "#040815",
   colorBlue: "#0A122A",
   colorGray: "#1A1A1A",
+  colorGrayDark: "#090808",
   colorDanger: "#E18787",
   colorPurple: "#AF2BFF",
   colorBorder: "#8D8D8D",

@@ -54,7 +54,7 @@ const HeaderComponent = () => {
                 <Link to="/c">Kontakt</Link>
               </Item>
             </List>
-            <Link className="onlineValuationLink" title="wycena online" to="/quotation">
+            <Link className="onlineValuationLink" title="wycena online" to="/lead/chooice-services">
               Wycena online
             </Link>
           </Box>
