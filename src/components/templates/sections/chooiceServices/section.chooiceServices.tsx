@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { graphql, useStaticQuery } from "gatsby";
 import ArrowBig from "assets/media/icon/arrowBig.svg";
@@ -9,10 +9,11 @@ import { Section, Title, Form } from "./section.chooiceServices.style";
 
 const SectionChooiceServicesComponent = () => {
   const [send, setSend] = useState(false);
+  const [param, setParam] = useState("");
 
-  const urlParams = new URLSearchParams(window.location.search).get("chooiceService");
-
-  console.log(urlParams);
+  useEffect(() => {
+    setParam(new URLSearchParams(window.location.search).get("chooiceService"));
+  }, []);
 
   const {
     reset,
@@ -36,19 +37,19 @@ const SectionChooiceServicesComponent = () => {
                   <Title>Więc co robimy?</Title>
                 </Col>
                 <Col xs={12} md={6} lg={4}>
-                  <CheckBoxService id="website1" check={urlParams === "strone www" ? true : false} error={errors.website1} label="strone www" register={register} required />
+                  <CheckBoxService id="website1" check={param === "strone www" ? true : false} error={errors.website1} label="strone www" register={register} required />
                 </Col>
                 <Col xs={12} md={6} lg={4}>
-                  <CheckBoxService id="website2" check={urlParams === "sklep internetowy" ? true : false} error={errors.website2} label="sklep internetowy" register={register} required />
+                  <CheckBoxService id="website2" check={param === "sklep internetowy" ? true : false} error={errors.website2} label="sklep internetowy" register={register} required />
                 </Col>
                 <Col xs={12} md={6} lg={4}>
-                  <CheckBoxService id="website3" check={urlParams === "pozycjonowanie" ? true : false} error={errors.website3} label="pozycjonowanie" register={register} required />
+                  <CheckBoxService id="website3" check={param === "pozycjonowanie" ? true : false} error={errors.website3} label="pozycjonowanie" register={register} required />
                 </Col>
                 <Col xs={12} md={6} lg={4}>
-                  <CheckBoxService id="website4" check={urlParams === "analityka" ? true : false} error={errors.website4} label="Analityka" register={register} required />
+                  <CheckBoxService id="website4" check={param === "analityka" ? true : false} error={errors.website4} label="Analityka" register={register} required />
                 </Col>
                 <Col xs={12} md={6} lg={4}>
-                  <CheckBoxService id="website5" check={urlParams === "aplikacja na telefon" ? true : false} error={errors.website5} label="aplikacja na telefon" register={register} required />
+                  <CheckBoxService id="website5" check={param === "aplikacja na telefon" ? true : false} error={errors.website5} label="aplikacja na telefon" register={register} required />
                 </Col>
                 <Col xs={12} md={6} lg={4}>
                   <CheckBoxService id="website6" error={errors.website6} label="Strona internetowa" register={register} required />
