@@ -12,7 +12,13 @@ const ContactPage = () => {
   return (
     <Layout>
       <Breadcrumb paths={paths} />
-      <DataLead />
+      <DataLead
+        data={{
+          id: "sendQuestion",
+          title: "Hej juz prawie wszystko!",
+          description: "Abyśmy dobrze sie zrozumieli, uzupełnij poprawnie ten formularz w celu prawidłowej wyceny takich usług jak.",
+        }}
+      />
     </Layout>
   );
 };

@@ -5,10 +5,25 @@ export const Section = styled.section`
   display: flex;
   padding: 5rem 0;
   position: relative;
+  align-items: center;
+  min-height: calc(100vh - 24rem);
 
   .description {
     display: flex;
     align-items: center;
+  }
+
+  .next {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .back {
+    button {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
   }
 
   @media all and (max-width: 960px) {
@@ -74,6 +89,7 @@ export const TitleForm = styled.h2`
 `;
 
 export const Form = styled.form`
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   position: relative;
