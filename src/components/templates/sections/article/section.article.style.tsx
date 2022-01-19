@@ -109,7 +109,7 @@ export const Article = styled.div`
   margin-bottom: ${({ theme }) => theme.break.big};
 `;
 
-export const ArticleImage = styled(Link)`
+export const ArticleImage = styled.div`
   width: 100%;
   height: 25rem;
 

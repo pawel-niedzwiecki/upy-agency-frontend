@@ -47,7 +47,18 @@ const StartSectionComponent = () => {
               }}
             />
             <Form action="/lead/chooice-services" method="get">
-              <InputSelect id="chooice-services" name="chooiceService" options={["strone www", "pozycjonowanie", "aplikacja na telefon"]} />
+              <InputSelect
+                id="chooice-services"
+                name="chooiceService"
+                options={[
+                  { value: "website", name: "strone www" },
+                  { value: "onlineshoop", name: "sklep internetowy" },
+                  { value: "seo", name: "seo" },
+                  { value: "analitycs", name: "analityke" },
+                  { value: "app", name: "aplikacje na telefon" },
+                  { value: "sxo", name: "sxo" },
+                ]}
+              />
               <ButtonSubmit>
                 DALEJ <ArrowBig />
               </ButtonSubmit>

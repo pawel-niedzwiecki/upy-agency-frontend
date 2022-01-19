@@ -56,14 +56,15 @@ export const ButtonInLink = ({ children, href, className, style, title }: Button
 interface ButtonSubmitProps {
   style?: any;
   onClick?: any;
+  form?: string;
   className?: string;
   children?: JSX.Element | JSX.Element[] | any;
 }
 
 // create component
-export const ButtonSubmit = ({ children, className, onClick, style }: ButtonSubmitProps) => {
+export const ButtonSubmit = ({ children, className, onClick, style, form }: ButtonSubmitProps) => {
   return (
-    <ButtonSubmitStyled onClick={onClick} className={className} style={style} type="submit">
+    <ButtonSubmitStyled onClick={onClick} className={className} style={style} form={form} type="submit">
       {children}
     </ButtonSubmitStyled>
   );

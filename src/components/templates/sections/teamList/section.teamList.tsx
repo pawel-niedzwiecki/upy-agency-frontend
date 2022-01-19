@@ -8,8 +8,8 @@ import { Row, Col, Container } from "components/orgamis/flexboxgrid/index.flexbo
 import { Section, Title, Description, BoxSticky, List, Item, ScrolTo, Worker, Avatar, WorkerName, WorkerCompentention } from "./section.teamList.style";
 
 const SectionTeamListComponent = ({ data: { teams } }: any) => {
-  const [activeCompetition, setActiveCompetition] = useState("all");
   const [teamsSelect, setTeamsSelect] = useState(teams);
+  const [activeCompetition, setActiveCompetition] = useState("all");
 
   const { competitions } = useStaticQuery(
     graphql`

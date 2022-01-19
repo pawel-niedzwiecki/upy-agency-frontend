@@ -28,7 +28,7 @@ const HeaderComponent = () => {
       <Header activemenu={activeMenu}>
         <Container>
           <Box activemenu={activeMenu} mobileMenuSwitch={mobileMenuSwitch}>
-            <Logo activemenu={activeMenu} to="/">
+            <Logo className="logo" to="/">
               <Brand />
               UPY
             </Logo>

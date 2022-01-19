@@ -97,7 +97,7 @@ const SectionArticleComponent = ({ data }: any) => {
             <Row>
               <Col xs={12}>
                 <Article>
-                  <ArticleImage to="/">
+                  <ArticleImage>
                     <GatsbyImage image={data.cover.localFile.childImageSharp.gatsbyImageData} alt={data.title} />
                   </ArticleImage>
                   <ArticleContentBox>

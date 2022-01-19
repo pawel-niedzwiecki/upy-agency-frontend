@@ -21,8 +21,8 @@ export const InputSelect = ({ id, name, options }: SelectType) => {
       <Select id={id} name={name}>
         {options.map((option, i) => {
           return (
-            <Option value={option} key={i}>
-              {option}
+            <Option value={option.value} key={i}>
+              {option.name}
             </Option>
           );
         })}

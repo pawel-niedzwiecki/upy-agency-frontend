@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useForm } from "react-hook-form";
+import { navigate } from "gatsby";
 import { graphql, useStaticQuery } from "gatsby";
 import ArrowBig from "assets/media/icon/arrowBig.svg";
+import { LeadsContext } from "providers/provider.leads";
 import { ButtonSubmit } from "components/atoms/button/component.button";
 import { Input, CheckBoxService, TextArea } from "components/molecules/form/index.form";
 import { Row, Col, Container } from "components/orgamis/flexboxgrid/index.flexboxgrid";
@@ -9,11 +11,38 @@ import { Section, Title, Form } from "./section.chooiceServices.style";
 
 const SectionChooiceServicesComponent = () => {
   const [send, setSend] = useState(false);
-  const [param, setParam] = useState("");
+  const [paramURL, setParamURL] = useState(null);
+  const { chosenServices, setServices } = useContext(LeadsContext);
 
   useEffect(() => {
-    setParam(new URLSearchParams(window.location.search).get("chooiceService"));
+    const newParamURL = new URLSearchParams(window.location.search).get("chooiceService");
+    setParamURL(newParamURL);
+    if (!!newParamURL)
+      switch (newParamURL) {
+        case "website":
+          chosenServices.website = true;
+          break;
+        case "onlineshoop":
+          chosenServices.onlineshoop = true;
+          break;
+        case "seo":
+          chosenServices.seo = true;
+          break;
+        case "analitycs":
+          chosenServices.analitycs = true;
+          break;
+        case "app":
+          chosenServices.app = true;
+          break;
+        case "sxo":
+          chosenServices.sxo = true;
+          break;
+      }
   }, []);
+  useEffect(() => {
+    setServices(chosenServices);
+    if (!!paramURL) navigate("/lead/data");
+  }, [paramURL]);
 
   const {
     reset,
@@ -28,8 +57,10 @@ const SectionChooiceServicesComponent = () => {
         <Row>
           <Col xs={12}>
             <Form
-              onSubmit={handleSubmit((d) => {
-                console.log(d);
+              onSubmit={handleSubmit((dataForm: { website: boolean; onlineshoop: boolean; seo: boolean; analitycs: boolean; app: boolean; sxo: boolean }) => {
+                if (!Object.entries(dataForm).filter((key) => key[1]).length) return alert("Hej! Ustalmy co robimy :)");
+                setServices(dataForm);
+                navigate("/lead/data");
               })}
             >
               <Row>
@@ -37,31 +68,22 @@ const SectionChooiceServicesComponent = () => {
                   <Title>Więc co robimy?</Title>
                 </Col>
                 <Col xs={12} md={6} lg={4}>
-                  <CheckBoxService id="website1" param={param} error={errors.website1} label="strone www" register={register} required />
+                  <CheckBoxService id="website" value={chosenServices.website} error={errors.website} label="strone www" register={register} />
                 </Col>
                 <Col xs={12} md={6} lg={4}>
-                  <CheckBoxService id="website2" param={param} error={errors.website2} label="sklep internetowy" register={register} required />
+                  <CheckBoxService id="onlineshoop" value={chosenServices.onlineshoop} error={errors.onlineshoop} label="sklep internetowy" register={register} />
                 </Col>
                 <Col xs={12} md={6} lg={4}>
-                  <CheckBoxService id="website3" param={param} error={errors.website3} label="pozycjonowanie" register={register} required />
+                  <CheckBoxService id="seo" value={chosenServices.seo} error={errors.seo} label="seo" register={register} />
                 </Col>
                 <Col xs={12} md={6} lg={4}>
-                  <CheckBoxService id="website4" param={param} error={errors.website4} label="Analityka" register={register} required />
+                  <CheckBoxService id="analitycs" value={chosenServices.analitycs} error={errors.analitycs} label="Analityka" register={register} />
                 </Col>
                 <Col xs={12} md={6} lg={4}>
-                  <CheckBoxService id="website5" param={param} error={errors.website5} label="aplikacja na telefon" register={register} required />
+                  <CheckBoxService id="app" value={chosenServices.app} error={errors.app} label="aplikacja na telefon" register={register} />
                 </Col>
                 <Col xs={12} md={6} lg={4}>
-                  <CheckBoxService id="website6" param={param} error={errors.website6} label="Strona internetowa" register={register} required />
-                </Col>
-                <Col xs={12} md={6} lg={4}>
-                  <CheckBoxService id="website7" param={param} error={errors.website7} label="Strona internetowa" register={register} required />
-                </Col>
-                <Col xs={12} md={6} lg={4}>
-                  <CheckBoxService id="website8" param={param} error={errors.website8} label="Strona internetowa" register={register} required />
-                </Col>
-                <Col xs={12} md={6} lg={4}>
-                  <CheckBoxService id="website9" param={param} error={errors.website9} label="Strona internetowa" register={register} required />
+                  <CheckBoxService id="sxo" value={chosenServices.sxo} error={errors.sxo} label="sxo" register={register} />
                 </Col>
                 <Col xs={12} className="nav">
                   <ButtonSubmit>

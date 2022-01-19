@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 
 type HeaderType = {
-  activemenu: boolean;
+  activemenu?: boolean;
 };
 
 export const Header = styled.header<HeaderType>`
@@ -15,7 +15,7 @@ export const Header = styled.header<HeaderType>`
 `;
 
 type BoxType = {
-  activemenu: boolean;
+  activemenu?: boolean;
   mobileMenuSwitch: boolean;
 };
 
@@ -27,6 +27,15 @@ export const Box = styled.div<BoxType>`
   transition: all 0.3s;
   padding: ${({ theme, activemenu }) => (activemenu ? `${theme.break.main} 0` : `4rem 0`)};
   height: ${({ mobileMenuSwitch, activemenu }) => (mobileMenuSwitch ? "35rem" : activemenu ? "6rem" : "12rem")};
+
+  .logo {
+    font-size: ${({ activemenu }) => (activemenu ? `2.4rem !important` : `5rem !important`)};
+
+    svg {
+      width: ${({ activemenu }) => (activemenu ? `4rem` : `6rem`)};
+      height: ${({ activemenu }) => (activemenu ? `4rem` : `6rem`)};
+    }
+  }
 
   a {
     text-align: center;
@@ -48,11 +57,7 @@ export const Box = styled.div<BoxType>`
   }
 `;
 
-type LogoType = {
-  activemenu: boolean;
-};
-
-export const Logo = styled(Link)<LogoType>`
+export const Logo = styled(Link)`
   border: none;
   display: flex;
   font-weight: bold;
@@ -62,13 +67,10 @@ export const Logo = styled(Link)<LogoType>`
   background: transparent;
   color: ${({ theme }) => theme.colorWhite};
   padding: 0 ${({ theme }) => theme.break.main};
-  font-size: ${({ activemenu }) => (activemenu ? `2.4rem !important` : `5rem !important`)};
 
   svg {
     fill: ${({ theme }) => theme.colorWhite};
     margin-right: ${({ theme }) => theme.break.main};
-    width: ${({ activemenu }) => (activemenu ? `4rem` : `6rem`)};
-    height: ${({ activemenu }) => (activemenu ? `4rem` : `6rem`)};
   }
 
   &:hover {
