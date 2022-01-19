@@ -12,7 +12,10 @@ import { Section, Title, BoxContent, Description, ListOptions, Option, TitleForm
 const SectionDataLeadComponent = ({ data: { id, title, description } }: { data: { id: string; title: string; description: string } }) => {
   const [send, setSend] = useState(false);
   const { chosenServices, setServices } = useContext(LeadsContext);
-  if (!Object.entries(chosenServices).filter((key) => key[1]).length) navigate("/lead/chooice-services");
+
+  useEffect(() => {
+    if (!Object.entries(chosenServices).filter((key) => key[1]).length) navigate("/lead/chooice-services");
+  }, [chosenServices]);
 
   const { checked } = useStaticQuery(
     graphql`
