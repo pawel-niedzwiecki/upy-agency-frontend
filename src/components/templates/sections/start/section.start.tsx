@@ -46,7 +46,7 @@ const StartSectionComponent = () => {
                 strings: "Hej! Co dziś robimy?",
               }}
             />
-            <Form action="/lead/chooice-services" method="get">
+            <Form action="/lead/data" method="get">
               <InputSelect
                 id="chooice-services"
                 name="chooiceService"

@@ -11,11 +11,37 @@ import { Section, Title, BoxContent, Description, ListOptions, Option, TitleForm
 
 const SectionDataLeadComponent = ({ data: { id, title, description } }: { data: { id: string; title: string; description: string } }) => {
   const [send, setSend] = useState(false);
+  const [paramURL, setParamURL] = useState(null);
   const { chosenServices, setServices } = useContext(LeadsContext);
 
   useEffect(() => {
+    const newParamURL = new URLSearchParams(window.location.search).get("chooiceService");
+    paramURL !== newParamURL && setParamURL(newParamURL);
+
+    if (!!newParamURL)
+      switch (newParamURL) {
+        case "website":
+          chosenServices.website = true;
+          break;
+        case "onlineshoop":
+          chosenServices.onlineshoop = true;
+          break;
+        case "seo":
+          chosenServices.seo = true;
+          break;
+        case "analitycs":
+          chosenServices.analitycs = true;
+          break;
+        case "app":
+          chosenServices.app = true;
+          break;
+        case "sxo":
+          chosenServices.sxo = true;
+          break;
+      }
+
     if (!Object.entries(chosenServices).filter((key) => key[1]).length) navigate("/lead/chooice-services");
-  }, [chosenServices]);
+  }, [chosenServices, paramURL]);
 
   const { checked } = useStaticQuery(
     graphql`

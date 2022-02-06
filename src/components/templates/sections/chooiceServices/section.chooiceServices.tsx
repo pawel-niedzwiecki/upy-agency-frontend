@@ -11,38 +11,7 @@ import { Section, Title, Form } from "./section.chooiceServices.style";
 
 const SectionChooiceServicesComponent = () => {
   const [send, setSend] = useState(false);
-  const [paramURL, setParamURL] = useState(null);
   const { chosenServices, setServices } = useContext(LeadsContext);
-
-  useEffect(() => {
-    const newParamURL = new URLSearchParams(window.location.search).get("chooiceService");
-    setParamURL(newParamURL);
-    if (!!newParamURL)
-      switch (newParamURL) {
-        case "website":
-          chosenServices.website = true;
-          break;
-        case "onlineshoop":
-          chosenServices.onlineshoop = true;
-          break;
-        case "seo":
-          chosenServices.seo = true;
-          break;
-        case "analitycs":
-          chosenServices.analitycs = true;
-          break;
-        case "app":
-          chosenServices.app = true;
-          break;
-        case "sxo":
-          chosenServices.sxo = true;
-          break;
-      }
-  }, []);
-  useEffect(() => {
-    setServices(chosenServices);
-    if (!!paramURL) navigate("/lead/data");
-  }, [paramURL]);
 
   const {
     reset,
