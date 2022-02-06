@@ -58,6 +58,10 @@ export const Section = styled.section`
         flex-wrap: nowrap;
         margin-left: 2rem;
 
+        ::-webkit-scrollbar {
+          display: none;
+        }
+
         li {
           position: relative;
           p {

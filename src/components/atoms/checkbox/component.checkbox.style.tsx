@@ -179,12 +179,20 @@ export const CheckBoxServiceChecked = styled.div<CheckBoxServiceCheckedType>`
     height: 4rem;
   }
 
-  &::after {
-    content: "";
-    width: 2rem;
-    height: 2rem;
+  span {
+    width: 100%;
+    height: 0.4rem;
+    position: absolute;
     border-radius: 0.3rem;
-    background: ${({ theme }) => theme.colorGrayDark};
+    background: ${({ theme }) => theme.colorBlack};
     display: ${({ checkedInput }) => (checkedInput ? "block" : "none")};
+
+    &:nth-child(1) {
+      transform: rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      transform: rotate(-45deg);
+    }
   }
 `;

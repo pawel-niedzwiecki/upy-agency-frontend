@@ -27,7 +27,10 @@ export const CheckBoxService = ({ id, type, value, label, error, register, requi
       <CheckBoxStyled id={id} name={id} type="checkbox" defaultChecked={value} onChange={(e) => setCheckedInput(e.target.checked)} />
       <CheckBoxServiceBox checkedInput={checkedInput}>
         <CheckBoxServiceText>{label}</CheckBoxServiceText>
-        <CheckBoxServiceChecked checkedInput={checkedInput} error={!!error} />
+        <CheckBoxServiceChecked checkedInput={checkedInput} error={!!error}>
+          <span></span>
+          <span></span>
+        </CheckBoxServiceChecked>
       </CheckBoxServiceBox>
     </Label>
   );

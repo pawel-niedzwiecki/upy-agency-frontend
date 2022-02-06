@@ -39,19 +39,29 @@ const HeaderComponent = () => {
             </MobileMenuButton>
             <List>
               <Item>
-                <Link to="/e/c">Realizacje</Link>
+                <Link to="/e/c" activeClassName="active" partiallyActive={true}>
+                  Realizacje
+                </Link>
               </Item>
               <Item>
-                <Link to="/s/c">Usługi</Link>
+                <Link to="/s/c" activeClassName="active" partiallyActive={true}>
+                  Usługi
+                </Link>
               </Item>
               <Item>
-                <Link to="/b">Blog</Link>
+                <Link to="/b" activeClassName="active" partiallyActive={true}>
+                  Blog
+                </Link>
               </Item>
               <Item>
-                <Link to="/a">O nas</Link>
+                <Link to="/a" activeClassName="active">
+                  O nas
+                </Link>
               </Item>
               <Item>
-                <Link to="/c">Kontakt</Link>
+                <Link to="/c" activeClassName="active">
+                  Kontakt
+                </Link>
               </Item>
             </List>
             <Link className="onlineValuationLink" title="wycena online" to="/lead/chooice-services">

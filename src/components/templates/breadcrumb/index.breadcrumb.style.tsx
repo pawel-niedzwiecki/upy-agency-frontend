@@ -12,6 +12,10 @@ export const ListPath = styled.ul`
   overflow: scroll;
   align-items: center;
 
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
   @media all and (min-width: 768px) {
     height: auto;
   }

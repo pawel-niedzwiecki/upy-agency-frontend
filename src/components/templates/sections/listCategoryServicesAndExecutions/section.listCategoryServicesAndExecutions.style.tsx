@@ -36,15 +36,21 @@ export const Section = styled.section`
 export const SelectBox = styled.div`
   left: 0;
   bottom: 0;
-  top: 0rem;
   width: 100%;
   z-index: 10;
   display: flex;
-  position: sticky;
-  align-items: center;
+  position: fixed;
+  padding: ${({ theme }) => theme.break.big} 0;
+  background: ${({ theme }) => theme.colorGray};
 
   @media all and (min-width: 768px) {
+    top: 0;
+    padding: 0;
+    display: flex;
     flex-wrap: wrap;
+    position: sticky;
+    align-items: center;
+    background: transparent;
   }
 `;
 
@@ -52,8 +58,10 @@ export const Header = styled.h1`
   font-size: 2rem;
   font-weight: bold;
   white-space: nowrap;
+  padding: ${({ theme }) => theme.break.main};
 
   @media all and (min-width: 768px) {
+    padding: 0;
     font-size: 3rem;
     margin-bottom: 1rem;
   }
@@ -65,6 +73,10 @@ export const List = styled.ul`
   overflow: scroll;
   margin-left: 2rem;
   position: relative;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
   @media all and (min-width: 768px) {
     width: 100%;
@@ -79,19 +91,22 @@ type ItemType = {
 };
 
 export const Item = styled.li<ItemType>`
+  display: flex;
   position: relative;
-
-  padding-right: ${({ theme }) => theme.break.main};
+  align-items: center;
+  border-radius: 0.3rem;
+  margin-right: ${({ theme }) => theme.break.main};
+  background-color: ${({ theme }) => theme.colorBlack};
+  padding: ${({ theme }) => theme.break.main} ${({ theme }) => theme.break.big};
 
   @media all and (min-width: 768px) {
+    padding: 0;
   }
 
   a {
-    display: block;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     white-space: nowrap;
     border-radius: 0.3rem;
-    padding: ${({ theme }) => theme.break.main};
 
     ${({ active, theme }) =>
       active
@@ -107,6 +122,7 @@ export const Item = styled.li<ItemType>`
     }
 
     @media all and (min-width: 768px) {
+      font-size: 1.4rem;
       padding: ${({ theme }) => theme.break.main} 0;
     }
   }

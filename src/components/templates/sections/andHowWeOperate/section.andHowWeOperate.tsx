@@ -15,7 +15,7 @@ const SectionAndHowWeOperateComponent = () => {
         <Row>
           <Col xs={12} style={{ display: "flex", flexDirection: "column" }}>
             <Title>I jak działamy ?</Title>
-            <ButtonInLink href="/lead" style={{ maxWidth: "max-content", marginBottom: "2rem" }} title="wyceń projekt">
+            <ButtonInLink href="/lead/chooice-services" style={{ maxWidth: "max-content", marginBottom: "2rem" }} title="wyceń projekt">
               WYCEŃ PROJEKT <ArrowBig />
             </ButtonInLink>
             <Link to="/c" title="wyceń projekt">

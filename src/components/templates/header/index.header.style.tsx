@@ -101,6 +101,10 @@ export const Item = styled.li`
   justify-content: center;
   padding: ${({ theme }) => theme.break.big};
 
+  .active {
+    color: ${({ theme }) => theme.colorAqua};
+  }
+
   @media all and (min-width: 1140px) {
     flex: none;
     width: max-content;

@@ -14,23 +14,24 @@ const SectionExecutionComponent = ({ data }: any) => {
   useEffect(() => {
     let lastScroll: any = null;
     let allActiveBox: any[] = [];
-    document.addEventListener(
-      "scroll",
-      () => {
-        allActiveBox = [];
-        if (!!elRef.current.length) {
-          clearTimeout(lastScroll);
-          lastScroll = setTimeout(() => {
-            elRef.current.forEach((_: any, i: number) => {
-              if (elRef.current[i].getBoundingClientRect().top + 100 < 0) return null;
-              allActiveBox.push(i);
-            });
-            setActiveSection(elRef.current.length - allActiveBox.length);
-          }, 10);
-        }
-      },
-      false
-    );
+
+    function ActiveLink() {
+      allActiveBox = [];
+      if (!!elRef.current.length) {
+        clearTimeout(lastScroll);
+        lastScroll = setTimeout(() => {
+          elRef.current.forEach((_: any, i: number) => {
+            if (elRef.current[i].getBoundingClientRect().top + 100 < 0) return null;
+            allActiveBox.push(i);
+          });
+          setActiveSection(elRef.current.length - allActiveBox.length);
+        }, 10);
+      }
+    }
+
+    document.addEventListener("scroll", ActiveLink, false);
+
+    return () => document.removeEventListener("scroll", ActiveLink, false);
   }, [elRef]);
 
   return (

@@ -51,6 +51,10 @@ export const List = styled.ul`
   margin-left: 2rem;
   position: relative;
 
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
   @media all and (min-width: 768px) {
     width: 100%;
     display: block;

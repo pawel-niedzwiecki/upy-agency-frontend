@@ -15,8 +15,7 @@ const LayoutComponent = ({ children }: LayoutComponentProps) => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>My Title</title>
-        <link rel="canonical" href="http://mysite.com/example" />
+        <title>UPY</title>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
       </Helmet>
 
